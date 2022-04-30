@@ -19,4 +19,5 @@
     <string name="menu">menu</string>
     <string name="logo1">Good</string>
     <string name="logo2">Book</string>
+    <string name="content_description_icon">icon</string>
 </resources>
