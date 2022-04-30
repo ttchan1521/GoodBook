@@ -4,10 +4,12 @@
     <item
         android:id="@+id/homeFragment"
         android:title="@string/home"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_home"
+        />
     <item
         android:id="@+id/myPostFragment"
         android:title="@string/my_post"
+        android:enabled="true"
         android:icon="@drawable/ic_my_post"/>
     <item
         android:id="@+id/notificationFragment"
