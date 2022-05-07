@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodBook">
         <activity
+            android:name=".ui.profile.CheckPhone"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.Phone"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SavedPostActivity"
             android:exported="false" />
         <activity

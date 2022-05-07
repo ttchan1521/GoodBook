@@ -20,4 +20,6 @@
     <string name="logo1">Good</string>
     <string name="logo2">Book</string>
     <string name="content_description_icon">icon</string>
+    <string name="avatar">Avatar</string>
+    <string name="name">Nguyễn Văn A</string>
 </resources>
