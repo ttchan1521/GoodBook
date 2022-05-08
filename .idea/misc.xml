@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.146" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/avt_img.xml" value="0.1635" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/book_background.xml" value="0.176" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/circle.xml" value="0.1635" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/edittext_bottom_border.xml" value="0.169" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/ic_account.xml" value="0.1695" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/ic_bookmark_added.xml" value="0.1695" />
@@ -17,14 +20,18 @@
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/ic_profile.xml" value="0.146" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/ic_search.xml" value="0.146" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/ic_setting.xml" value="0.146" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/menu_background.xml" value="0.1635" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/nav_background_curved.xml" value="0.196" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/drawable/white_bottom_border.xml" value="0.2215" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_detail_post.xml" value="0.2105978260869565" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_forgot_password.xml" value="0.2105978260869565" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_register.xml" value="0.2105978260869565" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_saved_post.xml" value="0.2105978260869565" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/book_item.xml" value="0.345" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/home_book_categories_item.xml" value="0.21739130434782608" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/fragment_list_more_grid.xml" value="0.264" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/home_book_categories_item.xml" value="0.2835249042145594" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/menu/bottom_menu.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/drawable/ic_book.xml" value="0.2265" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_forgot_password.xml" value="0.21467391304347827" />
