@@ -77,6 +77,18 @@
             app:iconGravity="start"
             app:iconPadding="15dp" />
 
+        <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/space1"
+            android:text="Submit"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="25dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/border_button_solid" />
+
         <Button
             android:id="@+id/button2"
             android:layout_height="92dp"

@@ -54,4 +54,9 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <style name="margin_25">
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginRight">25dp</item>
+    </style>
+
 </resources>

@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodBook">
         <activity
+            android:name=".ui.profile.AuthenticateUserWithEmail"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ResetPassword1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ResetPassword2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.PasswordAuthentication"
+            android:exported="false" />
+        <activity
             android:name=".ui.profile.CheckPhone"
             android:exported="false" />
         <activity
