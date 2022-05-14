@@ -26,6 +26,25 @@
     </style>
 
 
+    <style name="styleGood">
+        <item name="android:textColor">#FF6C55FD</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+
+    <style name="styleBook">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="styleBack">
+        <item name="android:tint">#6C63FF</item>
+        <item name="android:scaleX">1.4</item>
+        <item name="android:scaleY">1.4</item>
+
+
     <style name="list_name_text">
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:textSize">18sp</item>
@@ -93,6 +112,7 @@
     <style name="margin_25">
         <item name="android:layout_marginLeft">25dp</item>
         <item name="android:layout_marginRight">25dp</item>
+
 
     </style>
 
