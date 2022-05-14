@@ -20,6 +20,16 @@
     <string name="logo1">Good</string>
     <string name="logo2">Book</string>
     <string name="content_description_icon">icon</string>
+
+    <string name="recently">Gần đây</string>
+    <string name="book_harry_potter_and_the_sorcerers_stone">book Harry Potter and the sorcerers stone</string>
+    <string name="star">star</string>
+    <string name="user_avt">user avt</string>
+    <string name="icon_saved">icon_saved</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="saved">Đã lưu</string>
+    <string name="search_result_title">Kết quả tìm kiếm</string>
+
     <string name="avatar">Avatar</string>
     <string name="name">Nguyễn Văn A</string>
     <string name="password_authenticate">Xác thực mật khẩu</string>
@@ -29,4 +39,5 @@
     <string name="new_pass">Nhập mật khẩu mới</string>
     <string name="next">Tiếp tục</string>
     <string name="authenticate_user">Xác thực người dùng</string>
+
 </resources>

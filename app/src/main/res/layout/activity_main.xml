@@ -25,14 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/nav_background_curved"
+        android:visibility="visible"
+        app:itemTextAppearanceActive="@style/MenuItems"
+        app:itemTextAppearanceInactive="@style/MenuItems"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:itemTextAppearanceActive="@style/MenuItems"
-        app:itemTextAppearanceInactive="@style/MenuItems"
-        />
+        app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
