@@ -2,10 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="noti_seen">#FFF5F3FF</color>
+    <color name="blue_textpost">#FF6C55FD</color>
+    <color name="add_color">#FF4D2367</color>
+    <color name="star_outline">#FF6C63FF</color>
+    <color name="post_edittext">#FFF5F3FF</color>
+    <color name="cmt_color">#FFF5F3FF</color>
+
     <color name="purple_400">#6c63ff</color>
     <color name="purple_300">#a491ff</color>
     <color name="purple_700">#2838cb</color>
     <color name="grey">#cccccc</color>
     <color name="grey_100">#80584949</color>
     <color name="orange_001">#BD6E25</color>
+
 </resources>

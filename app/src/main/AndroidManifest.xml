@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.goodbook">
@@ -10,32 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodBook">
         <activity
-            android:name=".ui.profile.AuthenticateUserWithEmail"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.ResetPassword1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.ResetPassword2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.PasswordAuthentication"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.CheckPhone"
-            android:exported="false" />
-        <activity
-            android:name=".ui.profile.Phone"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.SavedPostActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DetailPostActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.AddPostActivity"
             android:exported="false" />
@@ -43,16 +30,10 @@
             android:name=".ui.profile.AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profile.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.forgotPassword.NewPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.forgotPassword.ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.RegisterActivity"
@@ -63,17 +44,11 @@
             android:label="@string/title_activity_login" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
+
 
 </manifest>

@@ -1,9 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp"
     tools:context=".ui.DetailPostActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/info_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="1"
+        android:padding="20dp">
+        
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:layout_weight="0.45"
+            android:src="@drawable/dac_nhan_tam"
+            android:elevation="10dp"
+            android:background="@drawable/add_avatar_border"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.55"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đắc nhân tâm"
+                android:textSize="24dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: Dale Carnegie"
+                android:textColor="@color/blue_textpost"
+                android:textSize="19dp"
+                android:layout_marginTop="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="15dp">
+    
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.35"
+                    android:src="@drawable/ic_mark_border"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_comment_outline"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="15"
+                    android:layout_weight="0.15"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_share_outline"
+                    android:layout_weight="0.3"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Được viết bởi"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:elevation="12dp"
+                    android:id="@+id/view2"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="2dp"
+
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/black">
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/imageView1"
+                        android:src="@drawable/noti_avatar">
+                    </ImageView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <com.ms.square.android.expandabletextview.ExpandableTextView
+        android:id="@+id/expand_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/info_book"
+        app:layout_constraintStart_toStartOf="parent"
+        expandableTextView:animDuration="100"
+        expandableTextView:maxCollapsedLines="5"
+        android:padding="10dp">
+
+        <!-- simple text view  -->
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#666666"
+            android:textSize="18sp"
+            />
+
+        <!-- expandable ImageButton -->
+        <ImageButton
+            android:id="@id/expand_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            />
+
+    </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+    <LinearLayout
+        android:id="@+id/my_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/expand_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:weightSum="1"
+        android:padding="10dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:elevation="20dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="5dp"
+
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"
+            android:layout_marginEnd="15dp">
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:src="@drawable/my_avatar">
+            </ImageView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:hint="Viết bình luận"
+            android:background="@drawable/cmt_border"
+            android:padding="5dp"
+            android:paddingStart="8dp"/>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_cmt"/>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
