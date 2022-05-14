@@ -20,4 +20,13 @@
     <string name="logo1">Good</string>
     <string name="logo2">Book</string>
     <string name="content_description_icon">icon</string>
+    <string name="avatar">Avatar</string>
+    <string name="name">Nguyễn Văn A</string>
+    <string name="password_authenticate">Xác thực mật khẩu</string>
+    <string name="current_password">Mật khẩu hiện tại</string>
+    <string name="forget_pass">Quên mật khẩu?</string>
+    <string name="reset_pass">Đặt lại mật khẩu</string>
+    <string name="new_pass">Nhập mật khẩu mới</string>
+    <string name="next">Tiếp tục</string>
+    <string name="authenticate_user">Xác thực người dùng</string>
 </resources>
