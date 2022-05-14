@@ -32,6 +32,21 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_register.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_account.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_bookmark_added.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_bookmark_remove.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_home.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_launcher_background.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/ic_notification.xml" value="0.1025" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/drawable/nav_background_curved.xml" value="0.122" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_add_post.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_detail_post.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_forgot_password.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_new_password.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_register.xml" value="0.1796875" />
+        <entry key="..\:/Users/Tuan/AndroidStudioProjects/GoodBooks/app/src/main/res/layout/activity_saved_post.xml" value="0.1796875" />
       </map>
     </option>
   </component>
