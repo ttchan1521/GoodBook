@@ -72,30 +72,22 @@
             android:layout_height="92dp"
             android:layout_width="match_parent"
             android:text="Thông tin tài khoản"
-            android:style="@style/button_profile"
+            android:theme="@style/button_profile"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_user_circle"
+            android:gravity="left|center_vertical"
             app:iconGravity="start"
             app:iconPadding="15dp" />
-
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/space1"
-            android:text="Submit"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="25dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/border_button_solid" />
 
         <Button
             android:id="@+id/button2"
             android:layout_height="92dp"
             android:layout_width="match_parent"
             android:text="Bài review"
-            android:style="@style/button_profile"
+            android:theme="@style/button_profile"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_list"
+            android:gravity="left|center_vertical"
             app:iconGravity="start"
             app:iconPadding="15dp" />
 
@@ -104,8 +96,10 @@
             android:layout_height="92dp"
             android:layout_width="match_parent"
             android:text="Đã lưu"
-            android:style="@style/button_profile"
+            android:theme="@style/button_profile"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_save"
+            android:gravity="left|center_vertical"
             app:iconGravity="start"
             app:iconPadding="15dp" />
     </LinearLayout>

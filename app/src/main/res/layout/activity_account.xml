@@ -47,7 +47,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:style="@style/account_linear_layout" >
+            android:theme="@style/account_linear_layout" >
 
             <LinearLayout
                 android:layout_height="match_parent"
@@ -58,14 +58,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_label"
+                    android:theme="@style/account_label"
                     android:text="Họ và tên"/>
 
                 <TextView
                     android:id="@+id/value_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_field"
+                    android:theme="@style/account_field"
                     android:text="Nguyễn Văn A" />
 
             </LinearLayout>
@@ -86,7 +86,7 @@
             android:id="@+id/phone"
             android:layout_height="100dp"
             android:layout_width="match_parent"
-            android:style="@style/account_linear_layout" >
+            android:theme="@style/account_linear_layout" >
 
             <LinearLayout
                 android:layout_height="match_parent"
@@ -97,14 +97,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_label"
+                    android:theme="@style/account_label"
                     android:text="Số điện thoại"/>
 
                 <TextView
                     android:id="@+id/phone_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_field"
+                    android:theme="@style/account_field"
                     android:text="*******000" />
 
             </LinearLayout>
@@ -125,7 +125,7 @@
             android:id="@+id/email"
             android:layout_height="100dp"
             android:layout_width="match_parent"
-            android:style="@style/account_linear_layout" >
+            android:theme="@style/account_linear_layout" >
 
             <LinearLayout
                 android:layout_height="match_parent"
@@ -136,14 +136,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_label"
+                    android:theme="@style/account_label"
                     android:text="Địa chỉ email"/>
 
                 <TextView
                     android:id="@+id/email_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_field"
+                    android:theme="@style/account_field"
                     android:text="anguyen@gmail.com" />
 
             </LinearLayout>
@@ -164,7 +164,7 @@
             android:id="@+id/password"
             android:layout_height="100dp"
             android:layout_width="match_parent"
-            android:style="@style/account_linear_layout" >
+            android:theme="@style/account_linear_layout" >
 
             <LinearLayout
                 android:layout_height="match_parent"
@@ -175,14 +175,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_label"
+                    android:theme="@style/account_label"
                     android:text="Mật khẩu"/>
 
                 <TextView
                     android:id="@+id/password_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:style="@style/account_field"
+                    android:theme="@style/account_field"
                     android:text="********" />
 
             </LinearLayout>
