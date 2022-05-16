@@ -74,6 +74,7 @@
     <string name="reset_pass">Đặt lại mật khẩu</string>
     <string name="new_pass">Nhập mật khẩu mới</string>
     <string name="next">Tiếp tục</string>
+    <string name="confirm_pass">Xác nhận mật khẩu</string>
     <string name="authenticate_user">Xác thực người dùng</string>
 
 

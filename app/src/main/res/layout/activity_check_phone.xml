@@ -66,8 +66,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_phone_verification_code"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:theme="@style/margin_25"
             android:hint="Nhập mã xác thực"
             android:layout_marginTop="15dp"
             app:startIconDrawable="@drawable/ic_baseline_edit_24">
@@ -88,7 +89,9 @@
             android:id="@+id/btn_submit"
             android:layout_marginTop="15dp"
             android:layout_height="53dp"
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:text="Xác nhận" />
 
     </LinearLayout>

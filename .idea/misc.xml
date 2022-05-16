@@ -24,7 +24,7 @@
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/account_fragment.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_account.xml" value="0.25" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_add_post.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_authenticate_user_with_email.xml" value="0.2783882783882784" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_authenticate_user_with_email.xml" value="0.33" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_check_phone.xml" value="0.33" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_detail_post.xml" value="0.22" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
@@ -36,15 +36,19 @@
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password.xml" value="0.33" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password1.xml" value="0.2783882783882784" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password2.xml" value="0.33" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_save_post.xml" value="0.18" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_saved_post.xml" value="0.1" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/book_item.xml" value="0.17346014492753623" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_account.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_list_more_grid.xml" value="0.1265625" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_my_post.xml" value="0.22" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_notification.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_profile.xml" value="0.31932773109243695" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/home_book_categories_item.xml" value="0.18" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/line.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/notification_list.xml" value="0.1265625" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/shape.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2115" />

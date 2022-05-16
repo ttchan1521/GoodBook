@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodBook">
         <activity
+            android:name=".ui.profile.SavePostActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SavedPostActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DetailPostActivity"
-            android:exported="false" >
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".ui.AddPostActivity"
             android:exported="false" />
@@ -48,6 +48,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
