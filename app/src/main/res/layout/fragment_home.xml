@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.374" />
 
     <ImageView
-        android:id="@+id/image_menu"
+        android:id="@+id/menu_on"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -52,7 +52,7 @@
         android:src="@drawable/ic_menu_24"
         app:layout_constraintEnd_toStartOf="@+id/search_textField"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_textField"
@@ -61,7 +61,7 @@
         android:hint="@string/search"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_menu"
+        app:layout_constraintStart_toEndOf="@+id/menu_on"
         app:layout_constraintEnd_toStartOf="@+id/image_notification"
         app:startIconDrawable="@drawable/ic_search"
         app:startIconContentDescription="@string/content_description_icon">
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/horizontal_recycler_view"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="455dp"
         android:layout_marginTop="5dp"
@@ -108,6 +108,7 @@
 
 <!--    Phần này là phần menu khi nhấn vô icon có 3 vạch kẻ ngang-->
     <FrameLayout
+        android:id="@+id/menu_box"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="@drawable/menu_background"
@@ -115,16 +116,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
+            android:id="@+id/menu_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:src="@drawable/ic_menu_24"
-            app:tint="@color/white"
             android:layout_margin="20dp"
-            android:contentDescription="@string/menu" />
+            android:contentDescription="@string/menu"
+            android:src="@drawable/ic_menu_24"
+            app:tint="@color/white" />
 
 
         <FrameLayout
@@ -169,10 +171,10 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_baseline_bookmark_24"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/icon_saved"
-                android:visibility="visible"/>
+                android:src="@drawable/ic_baseline_bookmark_24"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/title_saved_post"
@@ -190,10 +192,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:padding="10dp"
-            android:visibility="visible"
             android:layout_marginBottom="30dp"
-            >
+            android:padding="10dp"
+            android:visibility="visible">
 
             <ImageView
                 android:layout_width="30dp"
