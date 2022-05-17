@@ -27,5 +27,9 @@ class DetailPostActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = CmtAdapter()
 
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
+
     }
 }
