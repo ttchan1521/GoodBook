@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodBook">
         <activity
+            android:name=".ui.profile.AccountActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.profile.SavePostActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SavedPostActivity"
             android:exported="false" />
         <activity
             android:name=".ui.DetailPostActivity"
-            android:exported="false" >
-
-        </activity>
-
-        <activity
-            android:name=".ui.AddPostActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profile.AccountActivity"
+            android:name=".ui.AddPostActivity"
             android:exported="false" />
         <activity
             android:name=".ui.forgotPassword.NewPasswordActivity"
@@ -38,6 +38,26 @@
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
+            android:name=".ui.profile.PhoneActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.AccountActivity" />
+        <activity
+            android:name=".ui.profile.PasswordAuthentication"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.AccountActivity" />
+        <activity
+            android:name=".ui.profile.ResetPassword1Activity"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.PasswordAuthentication" />
+        <activity
+            android:name=".ui.profile.CheckPhone"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.PhoneActivity" />
+        <activity
+            android:name=".ui.profile.ResetPassword2Activity"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.PasswordAuthentication" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
@@ -48,6 +68,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

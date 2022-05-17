@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/layout_header"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:background="#8179FF"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -19,13 +19,13 @@
         tools:layout_editor_absoluteY="101dp"
         android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/image_avatar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="40dp"
-        android:contentDescription="@string/avatar"
-        app:srcCompat="@drawable/avt1" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:contentDescription="@string/avatar"
+            android:layout_marginLeft="15dp"
+            app:srcCompat="@drawable/avt1"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
         <LinearLayout
             android:id="@+id/user_info"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#F4F0F5"
-                android:textSize="28sp"
+                android:textSize="23sp"
                 android:text="@string/name"
                 app:layout_constraintVertical_bias="0.374" />
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#F4F0F5"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="10 bài review"
                 app:layout_constraintVertical_bias="0.374" />
 
@@ -61,45 +61,51 @@
     <LinearLayout
         android:id="@+id/button"
         android:gravity="center_horizontal"
-        android:layout_marginTop="182dp"
-        android:paddingTop="35dp"
+        android:paddingTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
         <Button
-            android:id="@+id/button1"
-            android:layout_height="92dp"
+            android:id="@+id/accountInfoBtn"
+            android:layout_height="86dp"
             android:layout_width="match_parent"
             android:text="Thông tin tài khoản"
             android:theme="@style/button_profile"
-            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_user_circle"
             android:gravity="left|center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             app:iconGravity="start"
             app:iconPadding="15dp" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_height="92dp"
+            android:id="@+id/reviewedBtn"
+            android:layout_height="86dp"
             android:layout_width="match_parent"
             android:text="Bài review"
             android:theme="@style/button_profile"
-            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_list"
             android:gravity="left|center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             app:iconGravity="start"
             app:iconPadding="15dp" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_height="92dp"
+            android:id="@+id/savedBtn"
+            android:layout_height="86dp"
             android:layout_width="match_parent"
             android:text="Đã lưu"
             android:theme="@style/button_profile"
-            android:layout_margin="10dp"
             android:drawableLeft="@drawable/ic_save"
             android:gravity="left|center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             app:iconGravity="start"
             app:iconPadding="15dp" />
     </LinearLayout>

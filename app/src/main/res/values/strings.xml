@@ -14,6 +14,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="title_authen_password">Xác thực mật khẩu</string>
 
     <string name="notification1">
         <b>Bùi Duy Tuấn</b> đã thích bài viết của bạn
@@ -74,7 +75,11 @@
     <string name="reset_pass">Đặt lại mật khẩu</string>
     <string name="new_pass">Nhập mật khẩu mới</string>
     <string name="next">Tiếp tục</string>
+    <string name="confirm_pass">Xác nhận mật khẩu</string>
     <string name="authenticate_user">Xác thực người dùng</string>
+    <string name="info_account">Thông tin tài khoản</string>
+    <string name="text_enter_your_phone">Vui lòng nhập số điện thoại mới để nhận mã OTP</string>
+    <string name="text_enter_authen_code_send_to_phone">Nhận mã xác thực vừa được gửi đến số điện thoại</string>
 
 
 </resources>
