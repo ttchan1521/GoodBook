@@ -4,58 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.Phone">
-
-    <LinearLayout
-        android:id="@+id/layout_header"
-        android:layout_height="105dp"
-        android:paddingTop="30dp"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/shape2"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/image_avatar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            app:srcCompat="@drawable/ic_return" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#F4F0F5"
-            android:textSize="28sp"
-            android:text="Điện thoại"
-            android:paddingLeft="15dp" />
-
-    </LinearLayout>
+    tools:context=".ui.profile.PhoneActivity">
 
     <LinearLayout
         android:id="@+id/content"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textColor="#8E7D7D"
             android:layout_marginTop="40dp"
-            android:textSize="17sp"
-            android:text="Vui lòng nhập số điện thoại mới để nhận mã OTP" />
+            android:textSize="16sp"
+            android:text="@string/text_enter_your_phone" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_phone"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:hint="Nhập số điện thoại"
-            android:layout_marginTop="18dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             app:startIconDrawable="@drawable/ic_baseline_edit_24">
 
 
@@ -71,11 +46,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_submit"
-            android:layout_marginTop="15dp"
-            android:layout_height="53dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:id="@+id/send_otp_btn"
+            android:layout_marginTop="20dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:text="Xác nhận" />
 

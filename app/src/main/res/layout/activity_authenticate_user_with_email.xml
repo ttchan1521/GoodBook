@@ -44,7 +44,7 @@
             android:layout_height="65dp"
             android:layout_width="match_parent"
             android:layout_marginTop="50dp"
-            android:theme="@style/margin_25"
+            android:theme="@style/margin_15"
             android:orientation="vertical" >
 
             <TextView
@@ -67,7 +67,7 @@
             android:id="@+id/input_auth_code"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:theme="@style/margin_25"
+            android:theme="@style/margin_15"
             android:hint="Nhập mã xác thực" >
 
 
@@ -86,9 +86,9 @@
         <Button
             android:id="@+id/btn_submit"
             android:layout_marginTop="20dp"
-            android:layout_height="53dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_width="match_parent"
             android:text="Xác nhận" />
 
