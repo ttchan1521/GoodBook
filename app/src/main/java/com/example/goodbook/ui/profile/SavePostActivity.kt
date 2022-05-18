@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.goodbook.R
 
-class ResetPassword1Activity : AppCompatActivity() {
+class SavePostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reset_password1)
+        setContentView(R.layout.activity_save_post)
 
-        supportActionBar!!.title = "Đặt lại mật khẩu"
+        supportActionBar!!.title = "Đã lưu"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setBackgroundDrawable(resources.getDrawable(R.drawable.shape2))
     }

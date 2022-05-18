@@ -1,17 +1,23 @@
 package com.example.goodbook.ui.fragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.fragment.app.Fragment
 import com.example.goodbook.R
+import com.example.goodbook.ui.profile.AccountActivity
+import com.example.goodbook.ui.profile.SavePostActivity
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [ProfileFragment.newInstance] factory method to
@@ -24,18 +30,39 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view: View = inflater.inflate(
+            R.layout.fragment_profile,
+            container, false
+        )
+        val accountInfoBtn = view.findViewById<View>(R.id.accountInfoBtn) as Button
+        val reviewedBtn = view.findViewById<View>(R.id.reviewedBtn) as Button
+        val savedBtn = view.findViewById<View>(R.id.savedBtn) as Button
+        accountInfoBtn.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(context, AccountActivity::class.java)
+                startActivity(intent)
+            }
+        })
+
+        savedBtn.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(context, SavePostActivity::class.java)
+                startActivity(intent)
+            }
+        })
+        return view
     }
 
     companion object {
