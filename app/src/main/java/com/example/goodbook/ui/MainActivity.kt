@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 //        val textview: TextView = findViewById(R.id.text4Login)
 //        textview.setOnClickListener {
 //            @Override
@@ -27,5 +28,11 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this, "faile", Toast.LENGTH_SHORT);
 //        }
 
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navHostController = supportFragmentManager
+            .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        bottomNavigationView.setupWithNavController(navHostController.navController)
     }
 }
