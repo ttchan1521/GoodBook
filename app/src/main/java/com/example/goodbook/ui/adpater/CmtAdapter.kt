@@ -1,4 +1,4 @@
-package com.example.goodbook.adpater
+package com.example.goodbook.ui.adpater
 
 import android.util.Log
 import android.view.LayoutInflater

@@ -18,6 +18,5 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
         bottomNavigationView.setupWithNavController(navHostController.navController)
-
     }
 }

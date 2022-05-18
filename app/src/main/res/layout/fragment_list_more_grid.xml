@@ -15,7 +15,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/banner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_textField"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/undraw_searching_re_3ra9" />
 
     <TextView
@@ -28,53 +28,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_banner2" />
 
-    <ImageView
-        android:id="@+id/image_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:contentDescription="@string/menu"
-        android:src="@drawable/ic_menu_24"
-        app:layout_constraintEnd_toStartOf="@+id/search_textField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/search_textField"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="@string/search"
-        app:layout_constraintEnd_toStartOf="@+id/image_notification"
-        app:layout_constraintStart_toEndOf="@+id/image_menu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconContentDescription="@string/content_description_icon"
-        app:startIconDrawable="@drawable/ic_search">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/font_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_bottom_border"
-            android:backgroundTint="@color/white"
-            android:textColorHint="#616161"
-            tools:ignore="TextContrastCheck,TextContrastCheck" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/image_notification"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="20dp"
-        android:contentDescription="@string/notification"
-        android:src="@drawable/ic_notifications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/search_textField"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="485dp"
         android:layout_marginTop="10dp"
@@ -82,7 +37,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/search_textField"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_more_detail"
         app:spanCount="3"
         tools:itemCount="12"

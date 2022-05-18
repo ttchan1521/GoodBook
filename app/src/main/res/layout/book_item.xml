@@ -1,138 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="120dp"
-    android:layout_height="190dp"
     >
 
+    <data>
+        <variable
+            name="book"
+            type="com.example.goodbook.model.Book" />
+    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
         >
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="185dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="5dp">
-        </androidx.cardview.widget.CardView>
-
-
-        <ImageView
-            android:id="@+id/image_book"
-            android:layout_width="95dp"
-            android:layout_height="115dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/book_harry_potter_and_the_sorcerers_stone"
-            app:srcCompat="@drawable/hp_hondaphuthuy"
-            tools:ignore="ImageContrastCheck"
-            android:elevation="5dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            />
-
-        <TextView
-            android:id="@+id/book_title"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            tools:text="Harry Potter và Hòn đá phù thủy"
-            style="@style/book_title_style"
-            app:layout_constraintEnd_toEndOf="@+id/image_book"
-            app:layout_constraintStart_toStartOf="@+id/image_book"
-            app:layout_constraintTop_toBottomOf="@+id/image_book"
-            android:elevation="5dp"/>
-
-        <TextView
-            android:id="@+id/book_writer"
-            style="@style/book_writer_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="5dp"
-            app:layout_constraintStart_toStartOf="@+id/book_title"
-            app:layout_constraintTop_toBottomOf="@+id/book_title"
-            tools:ignore="TextContrastCheck"
-            tools:text="J.K. Rowling"
-            android:layout_marginTop="2dp"/>
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/review_writer"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            app:layout_constraintEnd_toEndOf="@+id/image_book"
-            app:layout_constraintTop_toBottomOf="@+id/book_title"
-            app:srcCompat="@drawable/avt2"
-            android:elevation="5dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:layout_marginEnd="3dp"
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-            />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/book_writer"
-            app:layout_constraintTop_toBottomOf="@+id/book_writer"
-            android:elevation="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="match_parent"
             >
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="12dp"
-                android:src="@drawable/ic_baseline_star_24"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/star"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="12dp"
-                android:src="@drawable/ic_baseline_star_24"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/star"
-                android:layout_marginStart="12dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="12dp"
-                android:src="@drawable/ic_baseline_star_24"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/star"
-                android:layout_marginStart="24dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="12dp"
-                android:src="@drawable/ic_baseline_star_half_24"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/star"
-                android:layout_marginStart="36dp"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="12dp"
-                android:src="@drawable/ic_baseline_star_border_24"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/star"
-                android:layout_marginStart="48dp"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="195dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="5dp">
+            </androidx.cardview.widget.CardView>
 
-        </FrameLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/image_book"
+                android:layout_width="@dimen/book_box_content_width"
+                android:layout_height="125dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/book_harry_potter_and_the_sorcerers_stone"
+                tools:ignore="ImageContrastCheck"
+                android:elevation="5dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/hp_hondaphuthuy"
+                app:imagesrc="@{book.img_scr}"
+                />
+
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="@dimen/book_box_content_width"
+                android:layout_height="wrap_content"
+                tools:text="Harry Potter và Hòn đá phù thủy"
+                android:text="@{book.title}"
+                style="@style/book_title_style"
+                app:layout_constraintEnd_toEndOf="@+id/image_book"
+                app:layout_constraintStart_toStartOf="@+id/image_book"
+                app:layout_constraintTop_toBottomOf="@+id/image_book"
+                android:elevation="5dp"/>
+
+            <TextView
+                android:id="@+id/book_writer"
+                style="@style/book_writer_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                app:layout_constraintStart_toStartOf="@+id/book_title"
+                app:layout_constraintTop_toBottomOf="@+id/book_title"
+                android:text="@{book.book_writer}"
+                tools:ignore="TextContrastCheck"
+                tools:text="J.K. Rowling"
+                android:layout_marginTop="2dp"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/review_writer"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="3dp"
+                android:adjustViewBounds="true"
+                android:elevation="5dp"
+                android:scaleType="centerCrop"
+                app:imagesrc="@{book.review_writer_img}"
+                app:layout_constraintEnd_toEndOf="@+id/image_book"
+                app:layout_constraintTop_toBottomOf="@+id/book_title"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                tools:src="@drawable/avt2"
+                tools:ignore="ImageContrastCheck" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/book_writer"
+                app:layout_constraintTop_toBottomOf="@+id/book_writer"
+                android:elevation="5dp"
+                android:layout_marginTop="5dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="12dp"
+                    android:src="@drawable/ic_baseline_star_24"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/star"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="12dp"
+                    android:src="@drawable/ic_baseline_star_24"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/star"
+                    android:layout_marginStart="12dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="12dp"
+                    android:src="@drawable/ic_baseline_star_24"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/star"
+                    android:layout_marginStart="24dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="12dp"
+                    android:src="@drawable/ic_baseline_star_half_24"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/star"
+                    android:layout_marginStart="36dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="12dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/star"
+                    android:layout_marginStart="48dp"/>
+
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

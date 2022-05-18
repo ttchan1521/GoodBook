@@ -1,7 +1,6 @@
-package com.example.goodbook.adpater
+package com.example.goodbook.ui.adpater
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
