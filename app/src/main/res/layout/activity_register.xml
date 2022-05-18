@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.RegisterActivity">
+
     <ImageView
         android:id="@+id/image1Register"
         android:layout_width="match_parent"
@@ -25,6 +26,7 @@
         android:layout_marginTop="185dp"
         android:text="Good"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/textBookRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,11 +35,10 @@
         style="@style/styleBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="185dp"
         android:text="Book"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toEndOf="@+id/textGoodRegister"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="185dp" />
 
     <ImageView
         android:id="@+id/imageBackRegister"
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
+        android:onClick="backAction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
@@ -55,23 +57,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
+        android:layout_marginEnd="176dp"
         android:text="Đăng Ký"
         android:textColor="#000000"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image1Register" />
+        app:layout_constraintTop_toBottomOf="@+id/image1Register" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textFieldNameRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="50dp"
         android:hint="Họ Tên"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/text1Register">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -86,12 +90,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="50dp"
         android:hint="Email hoặc số điện thoại"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textFieldNameRegister">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -105,12 +109,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="50dp"
         android:hint="Mật khẩu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textFieldMailRegister">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -125,12 +129,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"
         android:hint="Nhập lại mật khẩu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textFieldPass1Register">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -171,23 +175,25 @@
         android:layout_width="136dp"
         android:layout_height="46dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="42dp"
         android:text="Facebook"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:icon="@drawable/ic_facebook_5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
     <Button
         android:id="@+id/googleButtonRegister"
         android:layout_width="136dp"
         android:layout_height="46dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="18dp"
         android:backgroundTint="#FF3C3C"
         android:text="Google"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:icon="@drawable/ic_google_6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/facebookButtonRegister"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 </androidx.constraintlayout.widget.ConstraintLayout>

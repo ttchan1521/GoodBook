@@ -102,7 +102,6 @@
                 android:src="@drawable/ic_menu_24"
                 app:tint="@color/white" />
 
-
             <FrameLayout
                 android:id="@+id/user_account_name_and_avt_in_menu"
                 android:layout_width="wrap_content"
