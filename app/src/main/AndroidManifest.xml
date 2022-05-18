@@ -20,7 +20,15 @@
             android:exported="false" />
         <activity
             android:name=".ui.DetailPostActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".ui.AddPostActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.AddPostActivity"
             android:exported="false" />
