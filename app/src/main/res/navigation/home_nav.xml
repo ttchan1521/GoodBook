@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/firsthomepage">
+
+    <fragment
+        android:id="@+id/firsthomepage"
+        android:name="com.example.goodbook.ui.fragment.FirstHomePageFragment"
+        android:label="fragment_firstpage_home"
+        tools:layout="@layout/fragment_firstpage_home" >
+        <action
+            android:id="@+id/action_firsthomepage_to_seeMoreListFragment"
+            app:destination="@id/seeMoreListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seeMoreListFragment"
+        android:name="com.example.goodbook.ui.fragment.SeeMoreListFragment"
+        android:label="SeeMoreListFragment"
+        tools:layout="@layout/fragment_list_more_grid">
+        <action
+            android:id="@+id/action_seeMoreListFragment_to_firsthomepage"
+            app:destination="@id/firsthomepage" />
+        <argument
+            android:name="keyword"
+            app:argType="string" />
+        <argument
+            android:name="pagetype"
+            app:argType="com.example.goodbook.ui.fragment.PageType" />
+        <action
+            android:id="@+id/action_seeMoreListFragment_self"
+            app:destination="@id/seeMoreListFragment" />
+    </fragment>
+
+</navigation>
