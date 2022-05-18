@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
 
     <ImageView
         android:id="@+id/image3Login"
@@ -34,57 +35,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="19dp"
         android:text="Welcome to "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/textGoodLogin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/image3Login" />
 
     <TextView
         android:id="@+id/textGoodLogin"
         style="@style/styleGood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="19dp"
         android:text="Good"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toStartOf="@+id/textBook"
         app:layout_constraintStart_toEndOf="@id/text2Login"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/image3Login" />
 
     <TextView
         android:id="@+id/textBook"
         style="@style/styleBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="66dp"
         android:text="Book"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textGoodLogin"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/image3Login" />
 
     <TextView
         android:id="@+id/text3Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="158dp"
         android:text="Đăng nhập"
         android:textColor="#000000"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text2Login" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textFieldMailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
         android:hint="Email hoặc số điện thoại"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/text3Login">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -97,12 +104,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="50dp"
         android:hint="Mật khẩu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textFieldMailLogin">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -117,11 +124,9 @@
         android:layout_marginStart="161dp"
         android:layout_marginTop="47dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="12dp"
         android:backgroundTint="#6BE57F"
         android:text="Xác nhận"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/text6Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPassLogin" />
@@ -131,12 +136,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="14dp"
+        android:onClick="forgotPasswordAction"
         android:text="Quên mật khẩu"
         android:textColor="#6C55FD"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassLogin" />
 
     <TextView
         android:id="@+id/text5Login"
@@ -145,6 +151,7 @@
         android:layout_marginStart="122dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="50dp"
+        android:onClick="registerAction"
         android:text="Tạo tài khoản"
         android:textColor="#6C55FD"
         android:textSize="16sp"
@@ -159,9 +166,7 @@
         android:layout_marginStart="190dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="189dp"
-        android:layout_marginBottom="110dp"
         android:text="Hoặc"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonConfirmLogin" />
@@ -171,25 +176,28 @@
         android:layout_width="136dp"
         android:layout_height="46dp"
         android:layout_marginStart="48dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="44dp"
 
+        android:layout_marginEnd="43dp"
         android:text="Facebook"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:icon="@drawable/ic_facebook_5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/googleButtonLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirmLogin" />
 
     <Button
         android:id="@+id/googleButtonLogin"
         android:layout_width="136dp"
         android:layout_height="46dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="#FF3C3C"
 
+        android:backgroundTint="#FF3C3C"
         android:text="Google"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:icon="@drawable/ic_google_6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/facebookButtonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirmLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
