@@ -30,9 +30,6 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".ui.AddPostActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.forgotPassword.NewPasswordActivity"
             android:exported="false" />
         <activity
