@@ -1,4 +1,4 @@
-package com.example.goodbook.ui.adpater
+package com.example.goodbook.adpater
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,9 +19,9 @@ class HomeListAdapter (
     private val clickListener: (type: CategoryType) -> Unit
 ) : ListAdapter<BookCategory, HomeListAdapter.CategoryViewHolder>(DiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeListAdapter.CategoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return HomeListAdapter.CategoryViewHolder(
+        return CategoryViewHolder(
             HomeBookCategoriesItemBinding.inflate(layoutInflater, parent, false)
         )
     }
@@ -46,7 +46,7 @@ class HomeListAdapter (
         }
     }
 
-    override fun onBindViewHolder(holder: HomeListAdapter.CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = getItem(position)
         holder.bind(category) { clickListener(category.type) }
     }

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.goodbook.ui.adpater.NotificationAdapter
+import com.example.goodbook.adpater.NotificationAdapter
 import com.example.goodbook.data.DataNotification
 import com.example.goodbook.databinding.FragmentNotificationBinding
 

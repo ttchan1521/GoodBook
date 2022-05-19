@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentListMoreGridBinding
 import com.example.goodbook.model.Book
-import com.example.goodbook.ui.adpater.HomeBookCategoriesItemAdapter
+import com.example.goodbook.adpater.HomeBookCategoriesItemAdapter
 import com.example.goodbook.ui.viewmodel.HomeViewModel
 import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
 
@@ -40,7 +40,7 @@ class SeeMoreListFragment: Fragment() {
 
         val adapter = HomeBookCategoriesItemAdapter{ book: Book ->
             Log.d(TAG, "More List View!")
-            TODO()
+            //TODO()
         }
 
         viewModel.searchedbooks = when (navigationArgs.keyword) {

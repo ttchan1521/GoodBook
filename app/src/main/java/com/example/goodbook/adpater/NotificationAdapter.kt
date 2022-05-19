@@ -1,4 +1,4 @@
-package com.example.goodbook.ui.adpater
+package com.example.goodbook.adpater
 
 import android.content.Context
 import android.content.Intent

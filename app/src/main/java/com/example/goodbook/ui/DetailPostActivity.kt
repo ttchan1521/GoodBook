@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodbook.R
-import com.example.goodbook.ui.adpater.CmtAdapter
+import com.example.goodbook.adpater.CmtAdapter
 import com.example.goodbook.databinding.ActivityDetailPostBinding
 import com.ms.square.android.expandabletextview.ExpandableTextView
 
