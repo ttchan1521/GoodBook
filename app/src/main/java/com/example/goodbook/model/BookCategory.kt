@@ -1,9 +1,14 @@
 package com.example.goodbook.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "category")
 data class BookCategory (
-    val type: CategoryType,
-    val title: String,
-    val books: MutableList<Book>
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val type: String,
+    val title: String
 )
 
 public enum class CategoryType {

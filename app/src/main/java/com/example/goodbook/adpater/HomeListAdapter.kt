@@ -14,6 +14,7 @@ import com.example.goodbook.databinding.HomeBookCategoriesItemBinding
 import com.example.goodbook.model.Book
 import com.example.goodbook.model.BookCategory
 import com.example.goodbook.model.CategoryType
+import com.example.goodbook.model.Post
 
 class HomeListAdapter (
     private val clickListener: (type: CategoryType) -> Unit
@@ -33,10 +34,10 @@ class HomeListAdapter (
         fun bind(category: BookCategory, clickListener: () -> Unit) {
             binding.category = category
 
-            binding.bookCategoryRecycleview.adapter = HomeBookCategoriesItemAdapter { book: Book ->
+            binding.bookCategoryRecycleview.adapter = HomeBookCategoriesItemAdapter { post: Post ->
                 //TODO()
             }
-            (binding.bookCategoryRecycleview.adapter as HomeBookCategoriesItemAdapter).submitList(category.books)
+            //(binding.bookCategoryRecycleview.adapter as HomeBookCategoriesItemAdapter).submitList(category.books)
 
             binding.moreText.setOnClickListener {
                 clickListener()
@@ -48,7 +49,9 @@ class HomeListAdapter (
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = getItem(position)
-        holder.bind(category) { clickListener(category.type) }
+
+        //TODO(fix type of category)
+        //holder.bind(category) { clickListener(category.type) }
     }
 
     companion object DiffCallback: DiffUtil.ItemCallback<BookCategory>() {

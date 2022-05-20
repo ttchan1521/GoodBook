@@ -38,7 +38,7 @@ class NotificationAdapter(private val context: Context, private val dataset: Lis
         }
 
         holder.avatar.setImageResource(R.drawable.noti_avatar)
-        holder.textView.text = HtmlCompat.fromHtml(context.resources.getString(item.stringResourceID), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        holder.textView.text = HtmlCompat.fromHtml(context.resources.getString(item.notificationID), HtmlCompat.FROM_HTML_MODE_LEGACY)
 
         holder.layout.setOnClickListener {
             val context = holder.view.context
