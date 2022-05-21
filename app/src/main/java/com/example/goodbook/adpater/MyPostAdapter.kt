@@ -23,7 +23,7 @@ class MyPostAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         var adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.book_item, parent, false)
+            .inflate(R.layout.myposst_book_item, parent, false)
 
         if (viewType == 1) {
             adapterLayout = LayoutInflater.from(parent.context)

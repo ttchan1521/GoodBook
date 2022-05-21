@@ -3,28 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/GoodBook/app/src/main/res/drawable/shape.xml" value="0.1845" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/drawable/shape2.xml" value="0.1845" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_account.xml" value="0.21" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_account2.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_add_post.xml" value="0.13541666666666666" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_authenticate_user_with_email.xml" value="0.33" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_password_authentication.xml" value="0.25" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_phone.xml" value="0.25" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password1.xml" value="0.33" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_reset_password2.xml" value="0.16" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_save_post.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_home.xml" value="0.14628623188405798" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_list_more_grid.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_my_post.xml" value="0.1" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_notification.xml" value="0.10643115942028986" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/fragment_profile.xml" value="0.13541666666666666" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/layout/home_book_categories_item.xml" value="0.13541666666666666" />
-        <entry key="..\:/Android/GoodBook/app/src/main/res/menu/bottom_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/add_post_item.xml" value="0.10724043715846994" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/book_item.xml" value="0.4" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/fragment_my_post.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/myposst_book_item.xml" value="0.2" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
