@@ -126,6 +126,7 @@
         android:layout_marginEnd="161dp"
         android:backgroundTint="#6BE57F"
         android:text="Xác nhận"
+        android:onClick="successLogin"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

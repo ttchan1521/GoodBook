@@ -15,11 +15,13 @@
  */
 package com.example.forage.data
 
+import android.app.Notification
 import android.content.ClipData
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.goodbook.data.DAO.GoodBookDao
 import com.example.goodbook.model.*
 
@@ -29,6 +31,7 @@ import com.example.goodbook.model.*
 
 @Database(entities = [User::class, Post::class, Rating::class,
     Notification::class, Like::class, Comment::class, BookCategory::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class GoodBookDatabase : RoomDatabase() {
     abstract fun goodBookDao() : GoodBookDao
 
