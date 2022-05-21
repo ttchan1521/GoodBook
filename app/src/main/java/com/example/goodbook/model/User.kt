@@ -1,8 +1,19 @@
 package com.example.goodbook.model
 
-data class User (
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "users")
+data class User(
+    @PrimaryKey @ColumnInfo(name = "id")
+    val userId: Int,
+
+    val password: String,
     val name: String,
-    val phone_number: Long,
+
+    @ColumnInfo(name = "phone")
+    val phoneNumber: String,
     val email: String,
     val avt: String
 )

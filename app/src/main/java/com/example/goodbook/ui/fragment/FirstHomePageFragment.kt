@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.goodbook.R
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.databinding.FragmentFirstpageHomeBinding
 import com.example.goodbook.model.CategoryType
 import com.example.goodbook.adpater.HomeListAdapter
@@ -18,7 +17,10 @@ import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
 class FirstHomePageFragment : Fragment() {
 
     private val viewModel: HomeViewModel by activityViewModels() {
-        HomeViewModelFactory()
+        HomeViewModelFactory(
+                (activity?.application as GoodBookApplication).database
+                    .goodBookDao()
+        )
     }
 
     private var _binding: FragmentFirstpageHomeBinding? = null
@@ -49,8 +51,10 @@ class FirstHomePageFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        viewModel.allCategories.let {
-            adapter.submitList(it)
+        viewModel.allCategories.observe(this.viewLifecycleOwner) { categories ->
+            categories.let {
+                adapter.submitList(it)
+            }
         }
 
         binding.apply {

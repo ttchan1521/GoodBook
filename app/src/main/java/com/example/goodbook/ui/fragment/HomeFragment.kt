@@ -1,8 +1,6 @@
 package com.example.goodbook.ui.fragment
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import androidx.core.widget.doOnTextChanged
@@ -10,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentHomeBinding
 import com.example.goodbook.ui.viewmodel.HomeViewModel
@@ -18,7 +17,10 @@ import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
 class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by activityViewModels() {
-        HomeViewModelFactory()
+        HomeViewModelFactory(
+            (activity?.application as GoodBookApplication).database
+                .goodBookDao()
+        )
     }
 
     private var _binding: FragmentHomeBinding? = null

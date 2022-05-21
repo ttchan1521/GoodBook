@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.navArgs
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentListMoreGridBinding
 import com.example.goodbook.model.Book
 import com.example.goodbook.adpater.HomeBookCategoriesItemAdapter
+import com.example.goodbook.model.Post
 import com.example.goodbook.ui.viewmodel.HomeViewModel
 import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
 
@@ -21,7 +25,10 @@ class SeeMoreListFragment: Fragment() {
     private val navigationArgs: SeeMoreListFragmentArgs by navArgs()
 
     private val viewModel: HomeViewModel by activityViewModels() {
-        HomeViewModelFactory()
+        HomeViewModelFactory(
+            (activity?.application as GoodBookApplication).database
+                .goodBookDao()
+        )
     }
 
     private var _binding: FragmentListMoreGridBinding? = null
@@ -38,14 +45,13 @@ class SeeMoreListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = HomeBookCategoriesItemAdapter{ book: Book ->
+        val adapter = HomeBookCategoriesItemAdapter{ post: Post ->
             Log.d(TAG, "More List View!")
-            //TODO()
+            //TODO(Tạo method xử lý sự kiện ở đây)
         }
 
-        viewModel.searchedbooks = when (navigationArgs.keyword) {
-            null -> listOf()
-            else -> viewModel.getBooks(navigationArgs.keyword)
+        if (navigationArgs.keyword != null) {
+            viewModel.searchedposts = viewModel.getPosts(navigationArgs.keyword)
         }
 
         if (navigationArgs.pagetype != null) {
@@ -58,8 +64,10 @@ class SeeMoreListFragment: Fragment() {
              }
         }
 
-        viewModel.searchedbooks.let {
-            adapter.submitList(it)
+        viewModel.searchedposts.observe(this.viewLifecycleOwner) { posts ->
+            posts.let {
+                adapter.submitList(it)
+            }
         }
 
         binding.recyclerView.adapter = adapter
