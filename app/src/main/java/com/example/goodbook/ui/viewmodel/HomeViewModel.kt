@@ -9,6 +9,7 @@ import com.example.goodbook.model.*
 
 class HomeViewModel(private val goodBookDao : GoodBookDao) : ViewModel() {
 
+    /**
     val allCategories : LiveData<List<BookCategory>> = goodBookDao.getAllCategories().asLiveData()
 
     lateinit var user: User
@@ -21,6 +22,7 @@ class HomeViewModel(private val goodBookDao : GoodBookDao) : ViewModel() {
         searchedposts = goodBookDao.getAllPosts().asLiveData()
         return searchedposts
     }
+    */
 }
 
 class HomeViewModelFactory(private val goodBookDao: GoodBookDao) : ViewModelProvider.Factory {

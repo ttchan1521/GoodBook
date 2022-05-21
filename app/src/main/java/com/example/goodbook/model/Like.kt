@@ -3,7 +3,6 @@ package com.example.goodbook.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "likes", primaryKeys = ["user_id", "comment_id"],

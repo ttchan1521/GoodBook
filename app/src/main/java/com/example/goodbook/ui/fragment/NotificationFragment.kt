@@ -48,8 +48,10 @@ class NotificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.notiRecyclerview
         recyclerView.layoutManager = LinearLayoutManager(context)
+        /**
         val dataNotification = DataNotification().load()
         recyclerView.adapter = NotificationAdapter(requireContext(), dataNotification)
+        */
     }
 
     override fun onDestroy() {

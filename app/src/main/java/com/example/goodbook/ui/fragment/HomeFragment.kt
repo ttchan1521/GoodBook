@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
 
-            user = viewModel.user
+            //user = viewModel.user
 
             menuOn.setOnClickListener {
                 binding.menuBox.visibility = android.view.View.VISIBLE

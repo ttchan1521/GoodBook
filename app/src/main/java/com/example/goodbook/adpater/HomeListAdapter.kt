@@ -13,10 +13,11 @@ import com.example.goodbook.databinding.BookItemBinding
 import com.example.goodbook.databinding.HomeBookCategoriesItemBinding
 import com.example.goodbook.model.Book
 import com.example.goodbook.model.BookCategory
-import com.example.goodbook.model.CategoryType
+//import com.example.goodbook.model.CategoryType
 import com.example.goodbook.model.Post
 
-class HomeListAdapter (
+class HomeListAdapter () {
+    /**
     private val clickListener: (type: CategoryType) -> Unit
 ) : ListAdapter<BookCategory, HomeListAdapter.CategoryViewHolder>(DiffCallback) {
 
@@ -64,4 +65,5 @@ class HomeListAdapter (
         }
 
     }
+    */
 }

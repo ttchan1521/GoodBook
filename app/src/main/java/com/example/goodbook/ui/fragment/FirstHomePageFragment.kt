@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.databinding.FragmentFirstpageHomeBinding
-import com.example.goodbook.model.CategoryType
 import com.example.goodbook.adpater.HomeListAdapter
 import com.example.goodbook.ui.viewmodel.HomeViewModel
 import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
@@ -37,6 +36,7 @@ class FirstHomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /**
         val adapter = HomeListAdapter { categoryType ->
             val keyword = when (categoryType) {
                 CategoryType.MOST_READ -> "Most read"
@@ -60,5 +60,7 @@ class FirstHomePageFragment : Fragment() {
         binding.apply {
             recyclerView.adapter = adapter
         }
+
+        */
     }
 }

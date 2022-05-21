@@ -24,9 +24,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/recently"
-            android:text="@{category.title}"
             style="@style/list_name_text"
             android:textStyle="bold"/>
+        <!--android:text="@{category.title}" -->
+        />
 
         <TextView
             android:id="@+id/more_text"

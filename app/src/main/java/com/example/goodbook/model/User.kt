@@ -19,5 +19,5 @@ data class User(
 ) {
     @PrimaryKey(autoGenerate = true)
     @NonNull @ColumnInfo(name = "id")
-    val userId: Int = 0
+    var userId: Int = 0
 }

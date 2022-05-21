@@ -1,9 +1,10 @@
 package com.example.goodbook.data
 
+import android.app.Notification
 import com.example.goodbook.R
-import com.example.goodbook.model.Notification
 
 class DataNotification {
+    /**
     fun load(): List<Notification> {
         return listOf<Notification>(
 //            Notification(R.string.notification1),
@@ -18,4 +19,5 @@ class DataNotification {
 //            Notification(R.string.notification10)
         )
     }
+    */
 }
