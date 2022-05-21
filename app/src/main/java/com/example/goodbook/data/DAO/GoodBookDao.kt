@@ -76,26 +76,7 @@ interface GoodBookDao {
     suspend fun delete(post: Post)
 
     // A method to retrieve all Notifications from the database
-    @Query("SELECT * FROM notifications")
-    fun getAllNotifications(): Flow<List<Notification>>
 
-    // A method to retrieve a Notification from the database by id
-    @Query("SELECT * FROM notifications WHERE id = :id")
-    fun getNotification(id: Long) : Flow<Notification>
-
-    // A method to insert a Notification into the database
-    //  (use OnConflictStrategy.REPLACE)
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(notification: Notification)
-
-
-    // A method to update a Notification that is already in the database
-    @Update
-    suspend fun update(notification: Notification)
-
-    // A method to delete a Notification from the database.
-    @Delete
-    suspend fun delete(notification: Notification)
 
     // A method to retrieve all Likes from the database
     @Query("SELECT * FROM likes")

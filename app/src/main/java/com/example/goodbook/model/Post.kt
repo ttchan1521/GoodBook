@@ -17,9 +17,6 @@ import java.util.*
                     onDelete = ForeignKey.CASCADE))
 )
 data class Post (
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-
     @NonNull
     val title: String,
     val img_scr: String,
@@ -29,4 +26,7 @@ data class Post (
     val user: Int,
     val category: Int,
     val time: Date
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+}
