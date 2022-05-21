@@ -30,4 +30,9 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun successLogin(view: View) {
+        var intent: Intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
 }

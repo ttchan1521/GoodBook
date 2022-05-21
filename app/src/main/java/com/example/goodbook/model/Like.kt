@@ -2,18 +2,29 @@ package com.example.goodbook.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.*
 
-@Entity(tableName = "likes")
+@Entity(tableName = "likes", primaryKeys = ["user_id", "comment_id"],
+foreignKeys = [
+    ForeignKey(entity = User::class,
+            parentColumns = ["id"],
+            childColumns = ["user_id"],
+            onDelete = ForeignKey.CASCADE),
+    ForeignKey(entity = Comment::class,
+            parentColumns = ["id"],
+            childColumns = ["comment_id"],
+            onDelete = ForeignKey.CASCADE)
+])
 data class Like (
-    @PrimaryKey
-    val id: Int,
-
     @ColumnInfo(name = "user_id")
     val userId: Int,
 
     @ColumnInfo(name = "comment_id")
     val commentId: Int,
 
-    val like_or_dis: Boolean
+    val like_or_dis: Int,
+    val time: Date,
+    val seen: Int
 )
