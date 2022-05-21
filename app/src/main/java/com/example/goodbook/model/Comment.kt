@@ -28,5 +28,5 @@ data class Comment  (
     val seen: Int
 ) {
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
+    var id: Int = 0
 }

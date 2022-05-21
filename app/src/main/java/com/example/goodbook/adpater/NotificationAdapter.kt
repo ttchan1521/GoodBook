@@ -1,5 +1,6 @@
 package com.example.goodbook.adpater
 
+import android.app.Notification
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -12,10 +13,9 @@ import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodbook.R
-import com.example.goodbook.model.Notification
 import com.example.goodbook.ui.DetailPostActivity
 
-class NotificationAdapter(private val context: Context, private val dataset: List<Notification>)
+class NotificationAdapter
     : RecyclerView.Adapter<NotificationAdapter.NotificationHolder>() {
 
         class NotificationHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -32,6 +32,7 @@ class NotificationAdapter(private val context: Context, private val dataset: Lis
     }
 
     override fun onBindViewHolder(holder: NotificationHolder, position: Int) {
+        /**
         val item = dataset[position]
         if (position %2 ==0) {
             holder.layout.setBackgroundColor(context.resources.getColor(R.color.noti_seen))
@@ -45,10 +46,11 @@ class NotificationAdapter(private val context: Context, private val dataset: Lis
             val intent = Intent(context, DetailPostActivity::class.java)
             context.startActivity(intent)
         }
+        */
     }
 
     override fun getItemCount(): Int {
-        return dataset.size
+        return 5
 
 
     }

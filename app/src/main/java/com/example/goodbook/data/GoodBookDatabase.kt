@@ -30,7 +30,7 @@ import com.example.goodbook.model.*
  */
 
 @Database(entities = [User::class, Post::class, Rating::class,
-    Notification::class, Like::class, Comment::class, BookCategory::class], version = 1, exportSchema = false)
+    SavedBook::class, Like::class, Comment::class, BookCategory::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class GoodBookDatabase : RoomDatabase() {
     abstract fun goodBookDao() : GoodBookDao

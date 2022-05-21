@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface GoodBookDao {
+
     // A method to retrieve all Users from the database
     @Query("SELECT * FROM users")
     fun getAllUsers(): Flow<List<User>>
@@ -36,8 +37,9 @@ interface GoodBookDao {
     fun getAllRatings(): Flow<List<Rating>>
 
     // A method to retrieve a Rating from the database by id
-    @Query("SELECT * FROM ratings WHERE id = :id")
-    fun getRating(id: Long) : Flow<Rating>
+
+    //@Query("SELECT * FROM ratings WHERE id = :id")
+    //fun getRating(id: Long) : Flow<Rating>
 
     // A method to insert a Rating into the database
     //  (use OnConflictStrategy.REPLACE)
@@ -53,38 +55,14 @@ interface GoodBookDao {
     @Delete
     suspend fun delete(rating: Rating)
 
-    // A method to retrieve all Posts from the database
-    @Query("SELECT * FROM posts")
-    fun getAllPosts(): Flow<List<Post>>
-
-    // A method to retrieve a Post from the database by id
-    @Query("SELECT * FROM posts WHERE id = :id")
-    fun getPost(id: Long) : Flow<Post>
-
-    // A method to insert a Post into the database
-    //  (use OnConflictStrategy.REPLACE)
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(post: Post)
-
-
-    // A method to update a Post that is already in the database
-    @Update
-    suspend fun update(post: Post)
-
-    // A method to delete a Post from the database.
-    @Delete
-    suspend fun delete(post: Post)
-
-    // A method to retrieve all Notifications from the database
-
 
     // A method to retrieve all Likes from the database
     @Query("SELECT * FROM likes")
     fun getAllLikes(): Flow<List<Like>>
 
     // A method to retrieve a Like from the database by id
-    @Query("SELECT * FROM likes WHERE id = :id")
-    fun getLike(id: Long) : Flow<Like>
+    //@Query("SELECT * FROM likes WHERE id = :id")
+    //fun getLike(id: Long) : Flow<Like>
 
     // A method to insert a Like into the database
     //  (use OnConflictStrategy.REPLACE)
@@ -143,5 +121,5 @@ interface GoodBookDao {
     // A method to delete a Category from the database.
     @Delete
     suspend fun delete(category: BookCategory)
-
+    
 }

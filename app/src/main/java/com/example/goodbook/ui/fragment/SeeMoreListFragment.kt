@@ -49,7 +49,7 @@ class SeeMoreListFragment: Fragment() {
             Log.d(TAG, "More List View!")
             //TODO(Tạo method xử lý sự kiện ở đây)
         }
-
+        /**
         if (navigationArgs.keyword != null) {
             viewModel.searchedposts = viewModel.getPosts(navigationArgs.keyword)
         }
@@ -71,7 +71,10 @@ class SeeMoreListFragment: Fragment() {
         }
 
         binding.recyclerView.adapter = adapter
+
+        */
     }
+
 
 }
 
