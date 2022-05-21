@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/add_post_item.xml" value="0.10724043715846994" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/book_item.xml" value="0.4" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/fragment_my_post.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/myposst_book_item.xml" value="0.2" />
+
         <entry key="..\:/Android/GoodBook/app/src/main/res/drawable/shape.xml" value="0.1845" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/drawable/shape2.xml" value="0.1845" />
         <entry key="..\:/Android/GoodBook/app/src/main/res/layout/activity_account.xml" value="0.21" />
@@ -25,9 +31,10 @@
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_login.xml" value="0.21920289855072464" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/fragment_list_more_grid.xml" value="0.13949275362318841" />
         <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
+
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
