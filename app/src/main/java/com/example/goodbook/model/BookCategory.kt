@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "category")
 data class BookCategory (
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
     @NonNull
     val type: String,
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}
 

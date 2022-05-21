@@ -16,8 +16,6 @@ import java.util.*
                                 childColumns = ["post_id"],
                                 onDelete = ForeignKey.CASCADE)])
 data class Comment  (
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
 
     @ColumnInfo(name = "user_id")
     val userId: Int,
@@ -28,4 +26,7 @@ data class Comment  (
     val description: String,
     val time: Date,
     val seen: Int
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+}
