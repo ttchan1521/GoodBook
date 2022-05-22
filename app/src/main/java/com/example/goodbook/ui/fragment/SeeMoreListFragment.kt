@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.navArgs
 import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentListMoreGridBinding
-import com.example.goodbook.model.Book
 import com.example.goodbook.adpater.HomeBookCategoriesItemAdapter
 import com.example.goodbook.model.Post
 import com.example.goodbook.ui.viewmodel.HomeViewModel

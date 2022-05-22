@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodbook.databinding.BookItemBinding
-import com.example.goodbook.model.Book
 import com.example.goodbook.model.Post
 
 class HomeBookCategoriesItemAdapter (

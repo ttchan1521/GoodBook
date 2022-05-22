@@ -2,6 +2,10 @@ package com.example.goodbook.adpater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+<<<<<<< Updated upstream
+=======
+import androidx.navigation.fragment.findNavController
+>>>>>>> Stashed changes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
