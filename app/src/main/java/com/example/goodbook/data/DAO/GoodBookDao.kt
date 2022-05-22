@@ -3,6 +3,7 @@ package com.example.goodbook.data.DAO
 import androidx.room.*
 import com.example.goodbook.model.*
 import kotlinx.coroutines.flow.Flow
+import java.util.*
 
 /**
  * Data Access Object for database interaction.
@@ -23,7 +24,8 @@ interface GoodBookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
 
-
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUsers(users: List<User>)
     // A method to update a User that is already in the database
     @Update
     suspend fun update(user: User)
@@ -36,14 +38,11 @@ interface GoodBookDao {
     @Query("SELECT * FROM ratings")
     fun getAllRatings(): Flow<List<Rating>>
 
-<<<<<<< Updated upstream
     // A method to retrieve a Rating from the database by id
 
     //@Query("SELECT * FROM ratings WHERE id = :id")
     //fun getRating(id: Long) : Flow<Rating>
 
-=======
->>>>>>> Stashed changes
     // A method to insert a Rating into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -63,13 +62,11 @@ interface GoodBookDao {
     @Query("SELECT * FROM likes")
     fun getAllLikes(): Flow<List<Like>>
 
-<<<<<<< Updated upstream
     // A method to retrieve a Like from the database by id
     //@Query("SELECT * FROM likes WHERE id = :id")
     //fun getLike(id: Long) : Flow<Like>
 
-=======
->>>>>>> Stashed changes
+
     // A method to insert a Like into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -119,7 +116,8 @@ interface GoodBookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(category: BookCategory)
 
-
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCategories(categories: List<BookCategory>)
     // A method to update a Category that is already in the database
     @Update
     suspend fun update(category: BookCategory)

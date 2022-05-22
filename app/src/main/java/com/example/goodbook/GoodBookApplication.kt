@@ -10,5 +10,5 @@ import com.example.goodbook.data.GoodBookDatabase
 class GoodBookApplication : Application() {
 
     // Provide a GoodBookDatabase value by lazy
-    val database: GoodBookDatabase by lazy { GoodBookDatabase.getDatabase(this)}
+    val database: GoodBookDatabase by lazy { GoodBookDatabase.getInstance(this)}
 }

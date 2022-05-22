@@ -6,12 +6,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
+    <!--
     <data>
         <variable
             name="book"
             type="com.example.goodbook.model.Book" />
     </data>
-
+-->
     <androidx.cardview.widget.CardView
         android:layout_width="120dp"
         android:layout_height="200dp"
@@ -56,12 +57,13 @@
                 android:layout_width="@dimen/book_box_content_width"
                 android:layout_height="wrap_content"
                 tools:text="Harry Potter và Hòn đá phù thủy"
-                android:text="@{book.title}"
+
                 style="@style/book_title_style"
                 app:layout_constraintEnd_toEndOf="@+id/image_book"
                 app:layout_constraintStart_toStartOf="@+id/image_book"
                 app:layout_constraintTop_toBottomOf="@+id/image_book"
                 android:elevation="5dp"/>
+            <!--android:text="@{book.title}" -->
 
             <TextView
                 android:id="@+id/book_writer"
@@ -71,10 +73,11 @@
                 android:elevation="5dp"
                 app:layout_constraintStart_toStartOf="@+id/book_title"
                 app:layout_constraintTop_toBottomOf="@+id/book_title"
-                android:text="@{book.book_writer}"
+
                 tools:ignore="TextContrastCheck"
                 tools:text="J.K. Rowling"
                 android:layout_marginTop="2dp"/>
+            <!--android:text="@{book.book_writer}"-->
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/review_writer"
