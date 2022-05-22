@@ -1,24 +1,16 @@
 package com.example.goodbook.adpater
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.goodbook.R
-import com.example.goodbook.databinding.BookItemBinding
 import com.example.goodbook.databinding.HomeBookCategoriesItemBinding
-import com.example.goodbook.model.Book
 import com.example.goodbook.model.BookCategory
-//import com.example.goodbook.model.CategoryType
 import com.example.goodbook.model.Post
 
-class HomeListAdapter () {
-    /**
-    private val clickListener: (type: CategoryType) -> Unit
+class HomeListAdapter (
+    private val clickListener: (type: String) -> Unit
 ) : ListAdapter<BookCategory, HomeListAdapter.CategoryViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -65,5 +57,5 @@ class HomeListAdapter () {
         }
 
     }
-    */
+
 }

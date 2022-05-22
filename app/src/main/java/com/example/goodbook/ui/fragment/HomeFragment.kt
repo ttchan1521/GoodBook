@@ -1,9 +1,10 @@
 package com.example.goodbook.ui.fragment
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -38,7 +39,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
 
-            //user = viewModel.user
+            val allcategories = viewModel.allCategories
+            Log.d(TAG, "onViewCreated: " + allcategories.toString())
 
             menuOn.setOnClickListener {
                 binding.menuBox.visibility = android.view.View.VISIBLE

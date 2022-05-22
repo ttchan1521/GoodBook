@@ -25,8 +25,8 @@ data class Comment  (
 
     val description: String,
     val time: Date,
-    val seen: Int
-) {
+    val seen: Int,
+
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-}
+)

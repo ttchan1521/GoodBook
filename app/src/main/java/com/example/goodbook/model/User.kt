@@ -15,9 +15,8 @@ data class User(
     @ColumnInfo(name = "phone")
     val phoneNumber: String,
     val email: String,
-    val avt: String
-) {
+    val avt: String,
     @PrimaryKey(autoGenerate = true)
     @NonNull @ColumnInfo(name = "id")
     var userId: Int = 0
-}
+)

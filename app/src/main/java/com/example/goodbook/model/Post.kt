@@ -25,8 +25,7 @@ data class Post (
     val description: String,
     val user: Int,
     val category: Int,
-    val time: Date
-) {
+    val time: Date,
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-}
+)

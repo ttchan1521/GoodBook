@@ -36,10 +36,9 @@ class FirstHomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /**
         val adapter = HomeListAdapter { categoryType ->
             val keyword = when (categoryType) {
-                CategoryType.MOST_READ -> "Most read"
+                "MOST READ" -> "Most read"
                 else -> "recently"
             }
 
@@ -61,6 +60,6 @@ class FirstHomePageFragment : Fragment() {
             recyclerView.adapter = adapter
         }
 
-        */
+
     }
 }

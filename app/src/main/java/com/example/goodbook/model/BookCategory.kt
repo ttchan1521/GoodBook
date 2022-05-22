@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 data class BookCategory (
     @NonNull
     val type: String,
-) {
+
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-}
+)
 
