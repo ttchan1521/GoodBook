@@ -4,6 +4,7 @@ import androidx.room.*
 import com.example.goodbook.model.Post
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface PostDao {
     @Query("SELECT * FROM posts")
     fun getAllPosts(): Flow<List<Post>>
