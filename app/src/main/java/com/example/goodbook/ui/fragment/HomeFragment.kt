@@ -1,6 +1,7 @@
 package com.example.goodbook.ui.fragment
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -12,8 +13,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentHomeBinding
+import com.example.goodbook.model.User
+import com.example.goodbook.ui.LoginActivity
+import com.example.goodbook.ui.SavedPostActivity
 import com.example.goodbook.ui.viewmodel.HomeViewModel
 import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
 
@@ -37,17 +42,41 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
 
-            val allcategories = viewModel.allCategories
-            Log.d(TAG, "onViewCreated: " + allcategories.toString())
+        //TODO(cần sửa cho hợp lý khi đẩy thông tin người dùng từ Login vô Main)
+        val user_fullname = activity?.intent?.extras?.getString("userFullName")
+        val user_avt = activity?.intent?.extras?.getString("userAvt")
+
+        val user1 = User("92363", "Nguyễn Văn A", "92634937", "jsgdy@gmial.com", "avt2")
+        val user2 = User("123", "Nguyễn Thị B", "27462937", "ssfg@gmial.com", "avt1")
+
+
+        binding.apply {
+            userFullName = user_fullname
+            userAvt = user_avt
 
             menuOn.setOnClickListener {
-                binding.menuBox.visibility = android.view.View.VISIBLE
+                menuBox.visibility = android.view.View.VISIBLE
+
+                savedPostTab.setOnClickListener {
+                    val savedPostIntent = Intent(activity, SavedPostActivity::class.java)
+                    startActivity(savedPostIntent)
+                }
+
+                val bottomMenuView = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                bottomMenuView?.visibility = android.view.View.INVISIBLE
+
+                logout.setOnClickListener {
+                    val savedPostIntent = Intent(activity, LoginActivity::class.java)
+                    startActivity(savedPostIntent)
+                }
             }
 
             menuOff.setOnClickListener {
-                binding.menuBox.visibility = android.view.View.INVISIBLE
+                menuBox.visibility = android.view.View.INVISIBLE
+
+                val bottomMenuView = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                bottomMenuView?.visibility = android.view.View.VISIBLE
             }
 
             searchTextInput.setOnKeyListener { _, actionId, keyEvent ->
@@ -59,7 +88,9 @@ class HomeFragment : Fragment() {
                         val action = FirstHomePageFragmentDirections
                             .actionFirsthomepageToSeeMoreListFragment(
                                 searchTextField.editText.toString(),
-                                PageType.SEARCHED_RESULTS
+                                PageType.SEARCHED_RESULTS,
+                                ResultsRelatedTopic.NULL,
+                                -99
                             );
                         contentFragment.findNavController().navigate(action)
                     }
@@ -68,7 +99,9 @@ class HomeFragment : Fragment() {
                         val action = SeeMoreListFragmentDirections
                             .actionSeeMoreListFragmentSelf(
                                 searchTextField.editText.toString(),
-                                PageType.SEARCHED_RESULTS
+                                PageType.SEARCHED_RESULTS,
+                                ResultsRelatedTopic.NULL,
+                                -99
                             );
                         contentFragment.findNavController().navigate(action)
                     }
@@ -84,6 +117,6 @@ class HomeFragment : Fragment() {
     }
 }
 
-public enum class PageType {
+enum class PageType {
     SEARCHED_RESULTS, SEEMORE_RESULT
 }

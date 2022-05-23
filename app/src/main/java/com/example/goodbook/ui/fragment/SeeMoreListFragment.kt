@@ -1,6 +1,7 @@
 package com.example.goodbook.ui.fragment
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.goodbook.R
 import com.example.goodbook.databinding.FragmentListMoreGridBinding
 import com.example.goodbook.adpater.HomeBookCategoriesItemAdapter
 import com.example.goodbook.model.Post
+import com.example.goodbook.ui.DetailPostActivity
 import com.example.goodbook.ui.viewmodel.HomeViewModel
 import com.example.goodbook.ui.viewmodel.HomeViewModelFactory
 
@@ -42,22 +44,29 @@ class SeeMoreListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = HomeBookCategoriesItemAdapter{ post: Post ->
-            Log.d(TAG, "More List View!")
-            //TODO(Tạo method xử lý sự kiện ở đây)
-        }
-        /**
-        if (navigationArgs.keyword != null) {
-            viewModel.searchedposts = viewModel.getPosts(navigationArgs.keyword)
+        val adapter = HomeBookCategoriesItemAdapter(viewModel, this.viewLifecycleOwner) { post: Post ->
+            Log.d(TAG, "Detail Post View!")
+            val postDetailIntent = Intent(this.activity, DetailPostActivity::class.java)
+            postDetailIntent.putExtra("postId", post.id)
+            startActivity(postDetailIntent)
         }
 
         if (navigationArgs.pagetype != null) {
              if (navigationArgs.pagetype == PageType.SEEMORE_RESULT) {
-                 binding.titleMoreDetail.text = "Xem thêm"
+                 binding.titleMoreDetail.text = navigationArgs.keyword
                  binding.imageBanner2.setImageResource(R.drawable.book_xemthem)
+
+                 if (navigationArgs.relatedtocategory != null) {
+                     viewModel.searchedposts = when (navigationArgs.relatedtocategory) {
+                         ResultsRelatedTopic.MOST_RATE -> viewModel.getAllMostRatePosts()
+                         ResultsRelatedTopic.MOST_RECENTLY -> viewModel.getAllMostRecentlyPosts()
+                         else -> viewModel.getAllPostRelatedTo(navigationArgs.categoryId)
+                     }
+                 }
              }
             else if (navigationArgs.pagetype == PageType.SEARCHED_RESULTS) {
                  binding.titleMoreDetail.text = "Kết quả tìm kiếm"
+                 viewModel.searchedposts = viewModel.getPostsRelatedToSearchedKeyword(navigationArgs.keyword)
              }
         }
 
@@ -69,7 +78,7 @@ class SeeMoreListFragment: Fragment() {
 
         binding.recyclerView.adapter = adapter
 
-        */
+
     }
 
 

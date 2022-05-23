@@ -31,6 +31,11 @@
         <action
             android:id="@+id/action_seeMoreListFragment_self"
             app:destination="@id/seeMoreListFragment" />
+        <argument
+            android:name="relatedtocategory"
+            app:argType="com.example.goodbook.ui.fragment.ResultsRelatedTopic" />
+        <argument android:name="categoryId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

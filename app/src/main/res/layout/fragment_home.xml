@@ -9,6 +9,15 @@
         <variable
             name="user"
             type="com.example.goodbook.model.User" />
+
+        <variable
+            name="userFullName"
+            type="String" />
+
+        <variable
+            name="userAvt"
+            type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -118,8 +127,8 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                    tools:ignore="ImageContrastCheck" />
-                <!--app:imagesrc="@{user.avt}" -->
+                    tools:ignore="ImageContrastCheck"
+                    app:imagesrc="@{userAvt}" />
 
                 <TextView
                     android:id="@+id/uer_fullname"
@@ -128,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="70dp"
-                    android:text="@{user.name}"
+                    android:text="@{userFullName}"
                     tools:text="Nguyen Van A" />
 
             </FrameLayout>

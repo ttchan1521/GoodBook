@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/activity_main.xml" value="0.14221014492753623" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/book_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidPJ/GoodBook/app/src/main/res/layout/fragment_list_more_grid.xml" value="0.14221014492753623" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_add_post.xml" value="0.2" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_authenticate_user_with_email.xml" value="0.1308876811594203" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/GoodBook/app/src/main/res/layout/activity_login.xml" value="0.25" />
