@@ -10,7 +10,7 @@ interface PostDao {
 
     // A method to retrieve a Post from the database by id
     @Query("SELECT * FROM posts WHERE id = :id")
-    fun getPost(id: Long) : Flow<Post>
+    fun getPost(id: Int) : Flow<Post>
 
     // A method to insert a Post into the database
     //  (use OnConflictStrategy.REPLACE)

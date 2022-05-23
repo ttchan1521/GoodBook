@@ -16,13 +16,16 @@ interface GoodBookDao {
 
     // A method to retrieve a User from the database by id
     @Query("SELECT * FROM users WHERE id = :id")
-    fun getUser(id: Long) : Flow<User>
+    fun getUser(id: Int) : Flow<User>
 
     // A method to insert a User into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
 
+    // A method to retrieve a Rating from the database by post_id
+    @Query("SELECT * FROM ratings WHERE post_id = :post_id")
+    fun getRating(post_id: Int) : Flow<Rating>
 
     // A method to update a User that is already in the database
     @Update
@@ -36,14 +39,6 @@ interface GoodBookDao {
     @Query("SELECT * FROM ratings")
     fun getAllRatings(): Flow<List<Rating>>
 
-<<<<<<< Updated upstream
-    // A method to retrieve a Rating from the database by id
-
-    //@Query("SELECT * FROM ratings WHERE id = :id")
-    //fun getRating(id: Long) : Flow<Rating>
-
-=======
->>>>>>> Stashed changes
     // A method to insert a Rating into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -63,13 +58,6 @@ interface GoodBookDao {
     @Query("SELECT * FROM likes")
     fun getAllLikes(): Flow<List<Like>>
 
-<<<<<<< Updated upstream
-    // A method to retrieve a Like from the database by id
-    //@Query("SELECT * FROM likes WHERE id = :id")
-    //fun getLike(id: Long) : Flow<Like>
-
-=======
->>>>>>> Stashed changes
     // A method to insert a Like into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -127,5 +115,47 @@ interface GoodBookDao {
     // A method to delete a Category from the database.
     @Delete
     suspend fun delete(category: BookCategory)
-    
+
+    @Query("SELECT * FROM posts")
+    fun getAllPosts(): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts ORDER BY time LIMIT 7")
+    fun get7MostRecentlyPosts(): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts ORDER BY time")
+    fun getAllMostRecentlyPosts(): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts " +
+            "JOIN ratings ON (posts.id = ratings.post_id) " +
+            "GROUP BY post_id " +
+            "ORDER BY COUNT(user_id) DESC " +
+            "LIMIT 7;")
+    fun get7MostRatePosts(): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts " +
+            "JOIN ratings ON (posts.id = ratings.post_id) " +
+            "GROUP BY post_id " +
+            "ORDER BY COUNT(user_id) DESC")
+    fun getAllMostRatePosts(): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts " +
+            "WHERE (category = :cate_id) " +
+            "LIMIT 7;")
+    fun get7PostsRelateToCategory(cate_id: Int): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts " +
+            "WHERE (category = :cate_id)")
+    fun getAllPostsRelatedToCategoryById(cate_id: Int): Flow<List<Post>>
+
+    @Query("SELECT * FROM posts " +
+            "WHERE (title LIKE :keyword OR book_writer LIKE :keyword OR description LIKE :keyword )")
+    fun getPostsRelatedToKeyWord(keyword: String) : Flow<List<Post>>
+
+    // A method to insert a Post into the database
+    //  (use OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(post: Post)
+
+    @Query("SELECT * FROM posts WHERE id = :id")
+    fun getPost(id: Int) : Flow<Post>
 }

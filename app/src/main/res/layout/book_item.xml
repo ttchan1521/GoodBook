@@ -8,8 +8,12 @@
 
     <data>
         <variable
-            name="book"
-            type="com.example.goodbook.model.Book" />
+            name="post"
+            type="com.example.goodbook.model.Post" />
+
+        <variable
+            name="userWritten"
+            type="com.example.goodbook.model.User" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -47,8 +51,8 @@
                 android:elevation="5dp"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-                tools:src="@drawable/hp_hondaphuthuy"/>
-                <!--app:imagesrc="@{book.img_scr}" -->
+                tools:src="@drawable/hp_hondaphuthuy"
+                app:imagesrc="@{post.img_scr}"
                 />
 
             <TextView
@@ -56,7 +60,7 @@
                 android:layout_width="@dimen/book_box_content_width"
                 android:layout_height="wrap_content"
                 tools:text="Harry Potter và Hòn đá phù thủy"
-                android:text="@{book.title}"
+                android:text="@{post.title}"
                 style="@style/book_title_style"
                 app:layout_constraintEnd_toEndOf="@+id/image_book"
                 app:layout_constraintStart_toStartOf="@+id/image_book"
@@ -71,7 +75,7 @@
                 android:elevation="5dp"
                 app:layout_constraintStart_toStartOf="@+id/book_title"
                 app:layout_constraintTop_toBottomOf="@+id/book_title"
-                android:text="@{book.book_writer}"
+                android:text="@{post.book_writer}"
                 tools:ignore="TextContrastCheck"
                 tools:text="J.K. Rowling"
                 android:layout_marginTop="2dp"/>
@@ -89,10 +93,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/book_title"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                 tools:src="@drawable/avt2"
-                tools:ignore="ImageContrastCheck" />
-            <!--app:imagesrc="@{book.review_writer_img}" -->
+                tools:ignore="ImageContrastCheck"
+                app:imagesrc="@{userWritten.avt}" />
 
             <FrameLayout
+                android:id="@+id/star_frame_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/book_writer"

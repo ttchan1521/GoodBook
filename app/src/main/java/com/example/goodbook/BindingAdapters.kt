@@ -16,7 +16,6 @@ fun setImageUri(view: ImageView, imageUri: String?) {
     }
 }
 
-/**
 @BindingAdapter("imagesrc")
 fun setImage(view: ImageView, imageSrc: String?) {
     val resID: Int = view.resources.getIdentifier(imageSrc, "drawable", view.context.packageName);
@@ -29,5 +28,5 @@ fun setImage(view: ShapeableImageView, imageSrc: String?) {
     val resID: Int = view.resources.getIdentifier(imageSrc, "drawable", view.context.packageName);
     view.setImageResource(resID)
 }
- */
+
 

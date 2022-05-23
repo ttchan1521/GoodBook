@@ -11,7 +11,6 @@ data class User(
     val password: String,
     @NonNull
     val name: String,
-
     @ColumnInfo(name = "phone")
     val phoneNumber: String,
     val email: String,

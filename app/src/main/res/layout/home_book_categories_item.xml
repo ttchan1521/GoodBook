@@ -8,7 +8,7 @@
     <data>
         <variable
             name="category"
-            type="com.example.goodbook.model.BookCategory" />
+            type="com.example.goodbook.model.CategoryWithPost" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
             tools:text="@string/recently"
             style="@style/list_name_text"
             android:textStyle="bold"/>
-        <!--android:text="@{category.title}" -->
+            android:text="@{category.title}"
         />
 
         <TextView
