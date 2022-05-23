@@ -23,6 +23,10 @@ interface GoodBookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
 
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUsers(users: List<User>)
+
     // A method to retrieve a Rating from the database by post_id
     @Query("SELECT * FROM ratings WHERE post_id = :post_id")
     fun getRating(post_id: Int) : Flow<Rating>
@@ -107,7 +111,8 @@ interface GoodBookDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(category: BookCategory)
 
-
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCategories(categories: List<BookCategory>)
     // A method to update a Category that is already in the database
     @Update
     suspend fun update(category: BookCategory)
