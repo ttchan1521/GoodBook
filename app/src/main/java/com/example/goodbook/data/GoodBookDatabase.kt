@@ -36,6 +36,7 @@ abstract class GoodBookDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context): GoodBookDatabase {
+
             Log.d(TAG, "buildDatabase in GoodBookDatabase is called")
             return Room.databaseBuilder(context, GoodBookDatabase::class.java, "gb_database")
                 .addCallback(object : RoomDatabase.Callback() {
