@@ -43,6 +43,7 @@ interface GoodBookDao {
     @Update
     suspend fun update(user: User)
 
+
     // A method to delete a User from the database.
     @Delete
     suspend fun delete(user: User)
@@ -185,5 +186,9 @@ interface GoodBookDao {
 
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
+
+    // A method to get all Post that User has userId saved
+    @Query("SELECT posts.* FROM save JOIN posts ON (posts.id = save.post_id) WHERE save.user_id = :userId")
+    fun getSavedPostsByUserId(userId: Int): Flow<List<Post>>
 
 }

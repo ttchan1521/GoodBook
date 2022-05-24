@@ -7,6 +7,7 @@ import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodbook.GoodBookApplication
@@ -15,6 +16,9 @@ import com.example.goodbook.adpater.CmtAdapter
 import com.example.goodbook.databinding.ActivityDetailPostBinding
 import com.example.goodbook.ui.viewmodel.*
 import com.ms.square.android.expandabletextview.ExpandableTextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 
 
 class DetailPostActivity : AppCompatActivity() {
@@ -58,6 +62,7 @@ class DetailPostActivity : AppCompatActivity() {
         }
 
         val post_id = intent?.extras?.getInt("post")
+
         val userId = intent?.extras?.getInt("userId")
 
         cmtModel.getCmtPost(post_id!!).observe(this, Observer { item ->
@@ -65,6 +70,7 @@ class DetailPostActivity : AppCompatActivity() {
                 adapter.submitList(it)
             }
         })
+
 
         postModel.getDetailPost(post_id!!).observe(this, Observer { item ->
             item.let {
@@ -107,6 +113,13 @@ class DetailPostActivity : AppCompatActivity() {
         binding.star5.setOnClickListener{
             setRating(4)
         }
+        
+        binding.markAsSave.setOnClickListener {
+            if (user_id != null) {
+                postModel.savePost(user_id, post_id)
+            }
+
+        }
     }
 
     fun setRating(star: Int) {
@@ -115,6 +128,7 @@ class DetailPostActivity : AppCompatActivity() {
         for (i in 0..star) {
             (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)
             starModel.addRating(postId!!, userId!!, star+1)
-        }
+
+        
     }
 }

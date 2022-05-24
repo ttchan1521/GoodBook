@@ -2,9 +2,13 @@ package com.example.goodbook.ui.viewmodel
 
 import android.graphics.Bitmap
 import androidx.lifecycle.*
+import com.example.goodbook.R
 import com.example.goodbook.data.DAO.PostDao
 import com.example.goodbook.model.Post
 import com.example.goodbook.model.PostDetail
+import com.example.goodbook.model.SavedBook
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -31,6 +35,14 @@ class PostModel(private val postDao: PostDao) : ViewModel(){
     fun getDetailPost(postId: Int): LiveData<PostDetail> {
         return postDao.getDetailPost(postId).asLiveData()
     }
+
+    fun savePost(user_id: Int, post_id: Int) {
+        val saveInstance = SavedBook(user_id, post_id)
+        viewModelScope.launch(Dispatchers.IO) {
+            postDao.insert(saveInstance)
+        }
+    }
+
 }
 
 class PostViewModelFactory(private val postDao: PostDao) : ViewModelProvider.Factory {

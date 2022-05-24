@@ -48,6 +48,8 @@ class HomeListAdapter(
                 Log.d(ContentValues.TAG, "Detail Post View through Home Page")
                 val postDetailIntent = Intent(activity, DetailPostActivity::class.java)
                 postDetailIntent.putExtra("post", post.id)
+                val userId = activity?.intent?.extras?.getInt("userId")
+                postDetailIntent.putExtra("userId", userId)
                 activity.startActivity(postDetailIntent)
             }
 

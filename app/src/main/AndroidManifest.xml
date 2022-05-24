@@ -15,12 +15,9 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.profile.SavePostActivity"
+            android:name=".ui.SavedPostActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.SavedPostActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.DetailPostActivity"
             android:exported="false"

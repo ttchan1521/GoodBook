@@ -3,6 +3,7 @@ package com.example.goodbook.data.DAO
 import androidx.room.*
 import com.example.goodbook.model.Post
 import com.example.goodbook.model.PostDetail
+import com.example.goodbook.model.SavedBook
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -37,4 +38,10 @@ interface PostDao {
     // A method to delete a Post from the database.
     @Delete
     suspend fun delete(post: Post)
+
+
+    // A method to insert a SavedBook into the database
+    //  (use OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(saveBook: SavedBook)
 }
