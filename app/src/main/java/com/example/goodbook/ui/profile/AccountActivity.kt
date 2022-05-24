@@ -1,17 +1,32 @@
 package com.example.goodbook.ui.profile
 
+import android.content.ContentValues.TAG
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.ContactsContract
+import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
-import java.io.IOException
-import java.io.InputStream
+import com.example.goodbook.data.GoodBookDatabase
+import com.example.goodbook.model.User
+import com.example.goodbook.ui.viewmodel.LoginViewModel
+import com.example.goodbook.ui.viewmodel.LoginViewModelFactory
 
 
 class AccountActivity : AppCompatActivity(), View.OnClickListener {
+    private val viewModel: LoginViewModel by viewModels() {
+        LoginViewModelFactory(
+            (application as GoodBookApplication).database
+                .goodBookDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +38,34 @@ class AccountActivity : AppCompatActivity(), View.OnClickListener {
         val changePassword: ImageView = findViewById<View>(R.id.change_password_btn) as ImageView
         val closeEditNameFieldBtn: ImageView = findViewById<View>(R.id.change_name_clicked_btn) as ImageView
         val backBtn: ImageView = findViewById(R.id.back_btn)
+        val inputName: EditText = findViewById(R.id.inputName)
+        val saveBtn: TextView = findViewById(R.id.saveBtn)
+        val strName: String = inputName.text.toString()
+        val item = findViewById<View>(R.id.editNameField)
+        val openEditNameFieldBtn = findViewById<View>(R.id.change_name_btn)
+
         changePhone.setOnClickListener(this)
         changeName.setOnClickListener(this)
         changeEmail.setOnClickListener(this)
         changePassword.setOnClickListener(this)
+
+
+        val fullName = intent.getStringExtra("userFullName")
+        val email = intent.getStringExtra("email")
+        val phone = intent.getStringExtra("phone")
+        val password = intent.getStringExtra("password")
+
+        val name: TextView = findViewById(R.id.value_name)
+        name.setText(fullName)
+        saveBtn.setOnClickListener {
+            viewModel.updateUser(User(password = password.toString(), name = strName, phoneNumber = phone.toString(), email = email.toString()))
+            Log.e(TAG, "KKK")
+            name.setText(strName)
+            item.visibility = View.GONE
+            closeEditNameFieldBtn.visibility = View.GONE
+            openEditNameFieldBtn.visibility = View.VISIBLE
+        }
+
         closeEditNameFieldBtn.setOnClickListener(this)
         backBtn.setOnClickListener {
             finish()
@@ -39,7 +78,18 @@ class AccountActivity : AppCompatActivity(), View.OnClickListener {
         val closeEditNameFieldBtn = findViewById<View>(R.id.change_name_clicked_btn)
         when (view.id) {
             R.id.change_phone_btn -> startActivity(Intent(this,PhoneActivity::class.java))
-            R.id.change_password_btn -> startActivity(Intent(this, PasswordAuthentication::class.java))
+            R.id.change_password_btn -> {
+                val intent = Intent(this, PasswordAuthentication::class.java)
+                val password = intent.getStringExtra("password")
+                val fullName = intent.getStringExtra("userFullName")
+                val email = intent.getStringExtra("email")
+                val phone = intent.getStringExtra("phone")
+                intent.putExtra("password", password)
+                intent.putExtra("userFullName", fullName)
+                intent.putExtra("email", email)
+                intent.putExtra("phone", phone)
+                startActivity(intent)
+            }
             R.id.change_name_btn -> {
                 item.visibility = View.VISIBLE
                 openEditNameFieldBtn.visibility = View.GONE

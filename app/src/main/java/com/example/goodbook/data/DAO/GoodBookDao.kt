@@ -43,6 +43,7 @@ interface GoodBookDao {
     @Update
     suspend fun update(user: User)
 
+
     // A method to delete a User from the database.
     @Delete
     suspend fun delete(user: User)
