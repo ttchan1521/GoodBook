@@ -1,16 +1,18 @@
 package com.example.goodbook.ui.viewmodel
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import android.graphics.Bitmap
+import androidx.lifecycle.*
 import com.example.goodbook.data.DAO.PostDao
 import com.example.goodbook.model.Post
+import com.example.goodbook.model.PostDetail
 import kotlinx.coroutines.launch
 import java.util.*
 
 class PostModel(private val postDao: PostDao) : ViewModel(){
 
-    fun addNewPost(title: String, img: String, author: String, description: String,
+    val allPost: LiveData<List<Post>> = postDao.getAllPosts().asLiveData()
+
+    fun addNewPost(title: String, img: Bitmap?, author: String, description: String,
                     user: Int, category: Int) {
         val post = Post(title, img, author, description, user, category, Date())
         insertPost(post)
@@ -20,6 +22,10 @@ class PostModel(private val postDao: PostDao) : ViewModel(){
         viewModelScope.launch {
             postDao.insert(post)
         }
+    }
+
+    fun getDetailPost(postId: Int): LiveData<PostDetail> {
+        return postDao.getDetailPost(postId).asLiveData()
     }
 }
 

@@ -9,9 +9,9 @@ class DataGenerator {
     companion object {
         fun getUsers(): List<User>{
             return listOf(
-                User("123456", "Noman", "03398729729", "trang@gmail.com", "jkskjs"),
-                User("123456", "Aayan", "03398729729", "trang@gmail.com", "jkskjs"),
-                User("123456", "Tariqul", "03398729729", "trang@gmail.com", "jkskjs")
+                User("123456", "Noman", "03398729729", "trang@gmail.com"),
+                User("123456", "Aayan", "03398729729", "trang@gmail.com"),
+                User("123456", "Tariqul", "03398729729", "trang@gmail.com")
             )
         }
 

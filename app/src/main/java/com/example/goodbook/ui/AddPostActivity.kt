@@ -1,19 +1,33 @@
 package com.example.goodbook.ui
 
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.databinding.ActivityAddPostBinding
 import com.example.goodbook.ui.viewmodel.CategoryModel
 import com.example.goodbook.ui.viewmodel.CategoryViewModelFactory
+import com.example.goodbook.ui.viewmodel.PostModel
+import com.example.goodbook.ui.viewmodel.PostViewModelFactory
+import kotlinx.android.synthetic.main.activity_phone.*
 
 
 class AddPostActivity : AppCompatActivity() {
@@ -23,12 +37,24 @@ class AddPostActivity : AppCompatActivity() {
             goodBookDao()
         )
     }
+    private val postModel: PostModel by viewModels() {
+        PostViewModelFactory(
+            (application as GoodBookApplication).database.postDao()
+        )
+    }
+
     private val category = mutableListOf<String>()
+
+    var pickedPhoto: Uri? = null
+    var pickedBitmap : Bitmap? = null
+
+    lateinit var imageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        imageView = binding.sourceImg
         binding.backBtn.setOnClickListener {
             finish()
         }
@@ -67,6 +93,62 @@ class AddPostActivity : AppCompatActivity() {
         }
 
 
+        binding.addImg.setOnClickListener {
+            pickedPhoto()
+        }
+
+
+        binding.done.setOnClickListener {
+            postModel.addNewPost(
+                binding.title.text.toString(),
+                pickedBitmap,
+                binding.author.text.toString(),
+                binding.description.text.toString(),
+                1,1
+            )
+            Toast.makeText(this@AddPostActivity, "Đăng thành công", Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
     }
+
+    fun pickedPhoto() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+        } else {
+            val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(galleryIntent, 2)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(galleryIntent, 2)
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
+            Log.d("Trang", "tt1")
+            pickedPhoto = data.data
+            if (Build.VERSION.SDK_INT >= 28) {
+                val source = ImageDecoder.createSource(this.contentResolver, pickedPhoto!!)
+                pickedBitmap = ImageDecoder.decodeBitmap(source)
+                imageView.setImageBitmap(pickedBitmap)
+                Log.d("Trang", "tt")
+            } else {
+                pickedBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, pickedPhoto)
+                imageView.setImageBitmap(pickedBitmap)
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
 }

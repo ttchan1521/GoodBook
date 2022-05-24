@@ -1,60 +1,76 @@
 package com.example.goodbook.adpater
 
+import android.app.Activity
+import android.content.ClipData
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
+import com.example.goodbook.databinding.MyposstBookItemBinding
+import com.example.goodbook.model.Post
 import com.example.goodbook.ui.AddPostActivity
 import com.example.goodbook.ui.DetailPostActivity
+import com.example.goodbook.ui.viewmodel.PostModel
+import com.example.goodbook.ui.viewmodel.PostViewModelFactory
+import com.example.goodbook.ui.viewmodel.StarModel
 
-class MyPostAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val LAYOUT_ONE = 0;
-    private val LAYOUT_TWO = 1;
+class MyPostAdapter(val starModel: StarModel): ListAdapter<Post, MyPostAdapter.MyPostHolder>(DiffCallback) {
 
-    class MyPostHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-    }
+    class MyPostHolder(private var binding: MyposstBookItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(post: Post) {
+            binding.bookTitle.text = post.title
+            binding.bookWriter.text = post.book_writer
+            binding.imageBook.setImageBitmap(post.img_scr)
+            binding.starCount.text = post.totalStar.toString()
 
-    class AddPostHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        var adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.myposst_book_item, parent, false)
-
-        if (viewType == 1) {
-            adapterLayout = LayoutInflater.from(parent.context)
-                .inflate(R.layout.add_post_item, parent, false)
-
-            return AddPostHolder(adapterLayout)
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPostHolder {
+        var adapterLayout = MyposstBookItemBinding.inflate(
+            LayoutInflater.from(parent.context)
+        )
+
+
         return MyPostHolder(adapterLayout)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyPostHolder, position: Int) {
+        val current = getItem(position)
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            var intent = Intent(context, DetailPostActivity::class.java)
-            if (position == 5) {
-                intent = Intent(context, AddPostActivity::class.java)
-            }
+            val intent = Intent(context, DetailPostActivity::class.java)
+            intent.putExtra("post",current.id)
 
             context.startActivity(intent)
         }
+        holder.bind(current)
     }
 
-    override fun getItemCount(): Int {
-        return 6
-    }
 
-    override fun getItemViewType(position: Int): Int {
-        if (position == 5) {
-            return LAYOUT_TWO
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<Post>() {
+            override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+                return oldItem === newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
+                return oldItem.id == newItem.id
+            }
         }
-        return LAYOUT_ONE
+    }
+
+    fun passData(context: Context, current: Post) {
+
     }
 
 }
