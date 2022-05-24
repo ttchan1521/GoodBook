@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
         val userId = user?.userId
         val userFullname = user?.name
 
-        Log.d(TAG, "successLogin:  + ${user?.userId}")
+        Log.d(TAG, "successLogin:  ${user?.userId}")
 
         intent.putExtra("userFullName", userFullname)
         intent.putExtra("userAvt", userAvt)

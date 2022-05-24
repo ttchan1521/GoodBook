@@ -17,8 +17,8 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="120dp"
-        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:layout_height="210dp"
         android:layout_margin="5dp"
         >
 
@@ -68,16 +68,17 @@
             <TextView
                 android:id="@+id/book_writer"
                 style="@style/book_writer_style"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:elevation="5dp"
                 app:layout_constraintStart_toStartOf="@+id/book_title"
                 app:layout_constraintTop_toBottomOf="@+id/book_title"
+                app:layout_constraintBottom_toTopOf="@+id/star_frame_layout"
                 android:text="@{post.book_writer}"
                 tools:ignore="TextContrastCheck"
                 tools:text="J.K. Rowling"
                 android:layout_marginTop="2dp"/>
-          
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/review_writer"
                 android:layout_width="18dp"
@@ -86,13 +87,14 @@
                 android:adjustViewBounds="true"
                 android:elevation="5dp"
                 android:scaleType="centerCrop"
-
+                android:src="@drawable/avt"
+                app:layout_constraintBottom_toTopOf="@+id/star_frame_layout"
                 app:layout_constraintEnd_toEndOf="@+id/image_book"
                 app:layout_constraintTop_toBottomOf="@+id/book_title"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                tools:src="@drawable/avt2"
                 tools:ignore="ImageContrastCheck"
-                app:imagesrc="@{userWritten.avt}" />
+                tools:src="@drawable/avt2" />
+            <!--                app:imagesrc="@{userWritten.avt}"-->
 
             <FrameLayout
                 android:id="@+id/star_frame_layout"
@@ -100,8 +102,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@+id/book_writer"
                 app:layout_constraintTop_toBottomOf="@+id/book_writer"
+                app:layout_constraintBottom_toBottomOf="@+id/card"
                 android:elevation="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 >
 
                 <ImageView

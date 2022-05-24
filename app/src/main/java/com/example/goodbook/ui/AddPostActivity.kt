@@ -27,7 +27,6 @@ import com.example.goodbook.ui.viewmodel.CategoryModel
 import com.example.goodbook.ui.viewmodel.CategoryViewModelFactory
 import com.example.goodbook.ui.viewmodel.PostModel
 import com.example.goodbook.ui.viewmodel.PostViewModelFactory
-import kotlinx.android.synthetic.main.activity_phone.*
 
 
 class AddPostActivity : AppCompatActivity() {

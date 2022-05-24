@@ -182,4 +182,8 @@ interface GoodBookDao {
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
 
+    // A method to get all Post that User has userId saved
+    @Query("SELECT posts.* FROM save JOIN posts ON (posts.id = save.post_id) WHERE save.user_id = :userId")
+    fun getSavedPostsByUserId(userId: Int): Flow<List<Post>>
+
 }
