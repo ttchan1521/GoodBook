@@ -12,7 +12,7 @@ interface PostDao {
 
     // A method to retrieve a Post from the database by id
     @Query("SELECT * FROM posts WHERE id = :id")
-    fun getPost(id: Long) : Flow<Post>
+    fun getPost(id: Int) : Flow<Post>
 
     @Query("SELECT title, img_scr, book_writer, description, posts.time, users.avt, category.type, AVG(star_quantity) as star FROM posts " +
             "INNER JOIN users ON posts.user = users.id " +

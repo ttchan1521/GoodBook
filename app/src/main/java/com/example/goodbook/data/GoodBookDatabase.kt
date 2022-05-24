@@ -1,6 +1,6 @@
 package com.example.goodbook.data
 
-import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import androidx.room.Database
@@ -26,17 +26,19 @@ abstract class GoodBookDatabase : RoomDatabase() {
 
     companion object {
         //INSTANCE will keep a reference to the database
-
         @Volatile private var INSTANCE: GoodBookDatabase? = null
 
         fun getInstance(context: Context): GoodBookDatabase{
+            Log.d(TAG, "getInstance in GoodBookDatabase is called")
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
         }
 
         private fun buildDatabase(context: Context): GoodBookDatabase {
+
             return Room.databaseBuilder(context, GoodBookDatabase::class.java, "goodbook_ver6")
+
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
@@ -49,6 +51,7 @@ abstract class GoodBookDatabase : RoomDatabase() {
                         }
                     }
                 })
+                .fallbackToDestructiveMigration()
                 .build()
         }
     }

@@ -36,30 +36,34 @@ class FirstHomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = HomeListAdapter { categoryType ->
-            val keyword = when (categoryType) {
-                "MOST READ" -> "Most read"
-                else -> "recently"
+        val adapter = HomeListAdapter(this.viewLifecycleOwner, viewModel, requireActivity()) { categoryTypeId, categoryTitle ->
+            val relatedTopic = when (categoryTypeId) {
+                -2 -> ResultsRelatedTopic.MOST_RECENTLY
+                -1 -> ResultsRelatedTopic.MOST_RATE
+                else -> ResultsRelatedTopic.AVAILABLE_CATEGORY
             }
 
             val action = FirstHomePageFragmentDirections
                 .actionFirsthomepageToSeeMoreListFragment(
-                    keyword,
-                    PageType.SEEMORE_RESULT
+                    categoryTitle,
+                    PageType.SEEMORE_RESULT,
+                    relatedTopic,
+                    categoryTypeId
                 );
             findNavController().navigate(action)
         }
 
-        viewModel.allCategories.observe(this.viewLifecycleOwner) { categories ->
-            categories.let {
-                adapter.submitList(it)
-            }
+        viewModel.get7PostsForCategories(this.viewLifecycleOwner).let {
+            adapter.submitList(it)
         }
 
         binding.apply {
             recyclerView.adapter = adapter
         }
 
-
     }
+}
+
+enum class ResultsRelatedTopic {
+    MOST_RECENTLY, MOST_RATE, AVAILABLE_CATEGORY, NULL
 }
