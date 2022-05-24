@@ -1,8 +1,10 @@
 package com.example.goodbook.ui.profile
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -57,6 +59,7 @@ class AccountActivity : AppCompatActivity(), View.OnClickListener {
         name.setText(fullName)
         saveBtn.setOnClickListener {
             viewModel.updateUser(User(password = password.toString(), name = strName, phoneNumber = phone.toString(), email = email.toString()))
+            Log.e(TAG, "KKK")
             name.setText(strName)
             item.visibility = View.GONE
             closeEditNameFieldBtn.visibility = View.GONE
@@ -78,8 +81,13 @@ class AccountActivity : AppCompatActivity(), View.OnClickListener {
             R.id.change_password_btn -> {
                 val intent = Intent(this, PasswordAuthentication::class.java)
                 val password = intent.getStringExtra("password")
-
+                val fullName = intent.getStringExtra("userFullName")
+                val email = intent.getStringExtra("email")
+                val phone = intent.getStringExtra("phone")
                 intent.putExtra("password", password)
+                intent.putExtra("userFullName", fullName)
+                intent.putExtra("email", email)
+                intent.putExtra("phone", phone)
                 startActivity(intent)
             }
             R.id.change_name_btn -> {
