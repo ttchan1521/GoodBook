@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 val user = viewModel.getUserByMailOrPhone(emailOrPhoneNumberInput.toString(), passwordInput.toString())
                     .observe(this@LoginActivity) {
-                    if (it.name != null) {
+                    if (it != null) {
                         successLogin(it)
                     }
                     else {
