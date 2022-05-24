@@ -96,7 +96,7 @@ class AddPostActivity : AppCompatActivity() {
                 pickedBitmap,
                 binding.author.text.toString(),
                 binding.description.text.toString(),
-                userId!!, spinner.selectedItemPosition - 1
+                userId!!, spinner.selectedItemPosition + 1
             )
             Toast.makeText(this@AddPostActivity, "Đăng thành công", Toast.LENGTH_SHORT).show()
             finish()

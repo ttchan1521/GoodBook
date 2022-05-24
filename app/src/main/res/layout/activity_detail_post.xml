@@ -282,6 +282,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/star1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="30dp"
@@ -290,6 +291,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/star"/>
         <ImageView
+            android:id="@+id/star2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="30dp"
@@ -299,6 +301,7 @@
             android:contentDescription="@string/star"
             android:layout_marginStart="10dp"/>
         <ImageView
+            android:id="@+id/star3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="30dp"
@@ -308,6 +311,7 @@
             android:contentDescription="@string/star"
             android:layout_marginStart="10dp"/>
         <ImageView
+            android:id="@+id/star4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="30dp"
@@ -317,6 +321,7 @@
             android:contentDescription="@string/star"
             android:layout_marginStart="10dp"/>
         <ImageView
+            android:id="@+id/star5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="30dp"
@@ -357,6 +362,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <EditText
+            android:id="@+id/text_mycmt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.9"
@@ -366,6 +372,7 @@
             android:paddingStart="8dp"/>
 
         <ImageView
+            android:id="@+id/send_cmt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_send" />

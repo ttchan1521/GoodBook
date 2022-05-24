@@ -3,6 +3,7 @@ package com.example.goodbook.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -12,8 +13,7 @@ import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.adpater.CmtAdapter
 import com.example.goodbook.databinding.ActivityDetailPostBinding
-import com.example.goodbook.ui.viewmodel.PostModel
-import com.example.goodbook.ui.viewmodel.PostViewModelFactory
+import com.example.goodbook.ui.viewmodel.*
 import com.ms.square.android.expandabletextview.ExpandableTextView
 
 
@@ -26,9 +26,22 @@ class DetailPostActivity : AppCompatActivity() {
         )
     }
 
+    private val starModel: StarModel by viewModels() {
+        StarViewModelFactory(
+            (application as GoodBookApplication).database.goodBookDao()
+        )
+    }
+
+    private val cmtModel: CommentModel by viewModels() {
+        CommentViewModelFactory(
+            (application as GoodBookApplication).database.goodBookDao()
+        )
+    }
+    lateinit var binding: ActivityDetailPostBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityDetailPostBinding.inflate(layoutInflater)
+        binding = ActivityDetailPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -37,13 +50,21 @@ class DetailPostActivity : AppCompatActivity() {
 
         recyclerView = binding.listCmt
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CmtAdapter()
+        val adapter = CmtAdapter()
+        recyclerView.adapter = adapter
 
         binding.backBtn.setOnClickListener {
             finish()
         }
 
         val post_id = intent?.extras?.getInt("post")
+        val userId = intent?.extras?.getInt("userId")
+
+        cmtModel.getCmtPost(post_id!!).observe(this, Observer { item ->
+            item.let {
+                adapter.submitList(it)
+            }
+        })
 
         postModel.getDetailPost(post_id!!).observe(this, Observer { item ->
             item.let {
@@ -55,5 +76,45 @@ class DetailPostActivity : AppCompatActivity() {
                 expTv.text = it.description
             }
         })
+
+        starModel.getStarUser(post_id, userId!!)?.observe(this, Observer { item ->
+            item.let {
+                val star = it - 1
+                for (i in 0..star) {
+                    (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)
+
+                }
+            }
+        })
+
+        binding.sendCmt.setOnClickListener {
+            cmtModel.addCmt(post_id, userId, binding.textMycmt.text.toString())
+            binding.textMycmt.text.clear()
+        }
+
+        binding.star1.setOnClickListener{
+            setRating(0)
+        }
+        binding.star2.setOnClickListener{
+            setRating(1)
+        }
+        binding.star3.setOnClickListener{
+            setRating(2)
+        }
+        binding.star4.setOnClickListener{
+            setRating(3)
+        }
+        binding.star5.setOnClickListener{
+            setRating(4)
+        }
+    }
+
+    fun setRating(star: Int) {
+        val userId = intent?.extras?.getInt("userId")
+        val postId = intent?.extras?.getInt("post")
+        for (i in 0..star) {
+            (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)
+            starModel.addRating(postId!!, userId!!, star+1)
+        }
     }
 }
