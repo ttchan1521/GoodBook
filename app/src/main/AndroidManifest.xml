@@ -12,10 +12,12 @@
         android:theme="@style/Theme.GoodBook">
         <activity
             android:name=".ui.profile.AccountActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.profile.SavePostActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.SavedPostActivity"
             android:exported="false" />

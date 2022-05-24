@@ -1,5 +1,6 @@
 package com.example.goodbook.data.DAO
 
+import android.provider.ContactsContract
 import androidx.room.*
 import com.example.goodbook.model.*
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +23,6 @@ interface GoodBookDao {
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
-
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUsers(users: List<User>)
@@ -163,4 +163,5 @@ interface GoodBookDao {
 
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
+
 }
