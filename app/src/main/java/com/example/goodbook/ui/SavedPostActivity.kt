@@ -14,15 +14,19 @@ import com.example.goodbook.adpater.HomeBookCategoriesItemAdapter
 import com.example.goodbook.databinding.ActivityLoginBinding
 import com.example.goodbook.databinding.ActivitySavePostBinding
 import com.example.goodbook.model.Post
-import com.example.goodbook.ui.viewmodel.CategoryModel
-import com.example.goodbook.ui.viewmodel.CategoryViewModelFactory
-import com.example.goodbook.ui.viewmodel.SavePostViewModel
-import com.example.goodbook.ui.viewmodel.SavePostViewModelFactory
+import com.example.goodbook.ui.viewmodel.*
 import kotlin.properties.Delegates
 
 class SavedPostActivity : AppCompatActivity() {
     private val viewModel: SavePostViewModel by viewModels() {
         SavePostViewModelFactory(
+            (application as GoodBookApplication).database.
+            goodBookDao()
+        )
+    }
+
+    private val homeViewModel: HomeViewModel by viewModels() {
+        HomeViewModelFactory(
             (application as GoodBookApplication).database.
             goodBookDao()
         )
@@ -35,22 +39,23 @@ class SavedPostActivity : AppCompatActivity() {
         val binding = ActivitySavePostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.d(TAG, "hello")
+        Log.d(TAG, "Saved Post HELLO")
 
-        val adapter = HomeBookCategoriesItemAdapter(viewModel, this) { post: Post ->
+        val adapter = HomeBookCategoriesItemAdapter(homeViewModel, this) { post: Post ->
             val postDetailIntent = Intent(this, DetailPostActivity::class.java)
             postDetailIntent.putExtra("post", post.id)
             postDetailIntent.putExtra("userId", userId)
             startActivity(postDetailIntent)
         }
 
-        pageBefore = this.intent?.extras?.getString("oldActivity")!!
-        userId = this.intent?.extras?.getInt("userId")!!
+        pageBefore = intent?.extras?.getString("oldActivity")!!
+        userId = intent?.extras?.getInt("userId")!!
 
-        if (userId!! != null) {
-            viewModel.getSavedPostsByUserId(userId!!).observe(this) {
-                adapter.submitList(it)
-            }
+        viewModel.getSavedPostsByUserId(userId).observe(this) {
+
+            val convertedList: List<Post> = it
+            adapter.submitList(convertedList)
+            Log.d(TAG, "hello4")
         }
 
         binding.savedPostRecycleView.adapter = adapter
