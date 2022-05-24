@@ -63,8 +63,6 @@ class DetailPostActivity : AppCompatActivity() {
 
         val post_id = intent?.extras?.getInt("post")
 
-        val userId = intent?.extras?.getInt("userId")
-
         cmtModel.getCmtPost(post_id!!).observe(this, Observer { item ->
             item.let {
                 adapter.submitList(it)
@@ -82,6 +80,8 @@ class DetailPostActivity : AppCompatActivity() {
                 expTv.text = it.description
             }
         })
+
+        val userId = intent?.extras?.getInt("userId")
 
         starModel.getStarUser(post_id, userId!!)?.observe(this, Observer { item ->
             item.let {
@@ -115,8 +115,8 @@ class DetailPostActivity : AppCompatActivity() {
         }
         
         binding.markAsSave.setOnClickListener {
-            if (user_id != null) {
-                postModel.savePost(user_id, post_id)
+            if (userId != null) {
+                postModel.savePost(userId, post_id)
             }
 
         }
@@ -127,8 +127,9 @@ class DetailPostActivity : AppCompatActivity() {
         val postId = intent?.extras?.getInt("post")
         for (i in 0..star) {
             (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)
-            starModel.addRating(postId!!, userId!!, star+1)
+            starModel.addRating(postId!!, userId!!, star + 1)
 
-        
+        }
     }
+
 }
