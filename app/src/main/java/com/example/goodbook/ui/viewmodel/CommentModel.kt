@@ -1,5 +1,6 @@
 package com.example.goodbook.ui.viewmodel
 
+import android.graphics.Bitmap
 import androidx.lifecycle.*
 import com.example.goodbook.data.DAO.GoodBookDao
 import com.example.goodbook.model.Comment
@@ -23,6 +24,7 @@ class CommentModel(private val goodBookDao: GoodBookDao): ViewModel() {
             goodBookDao.insert(cmt)
         }
     }
+
 }
 
 class CommentViewModelFactory(private val goodBookDao: GoodBookDao) : ViewModelProvider.Factory {

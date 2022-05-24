@@ -60,10 +60,12 @@ class MyPostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.myPostList
         recyclerView.layoutManager = GridLayoutManager(context, 2)
-        val adapter = MyPostAdapter(starModel = starModel)
+        val userId = activity?.intent?.extras?.getInt("userId")
+        val adapter = MyPostAdapter(userId!!)
+        Log.d("Trang", "MyPost" + userId)
         recyclerView.adapter = adapter
 
-        val userId = activity?.intent?.extras?.getInt("userId")
+
 
         postModel.getMyPost(userId!!).observe(this.viewLifecycleOwner) {item ->
             item?.let {
