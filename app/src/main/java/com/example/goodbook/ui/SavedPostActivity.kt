@@ -38,7 +38,6 @@ class SavedPostActivity : AppCompatActivity() {
         Log.d(TAG, "hello")
 
         val adapter = HomeBookCategoriesItemAdapter(viewModel, this) { post: Post ->
-            Log.d(ContentValues.TAG, "Detail Post View!")
             val postDetailIntent = Intent(this, DetailPostActivity::class.java)
             postDetailIntent.putExtra("post", post.id)
             postDetailIntent.putExtra("userId", userId)
@@ -59,7 +58,7 @@ class SavedPostActivity : AppCompatActivity() {
 
     fun back(view: View) {
         val activityClass = when (pageBefore) {
-            // Nếu có page nào nữa thì ném vô đây
+            //TODO Nếu có page nào nữa thì ném vô đây
             "MainActivity" -> MainActivity::class.java
             else -> MainActivity::class.java
         }
