@@ -37,8 +37,8 @@ abstract class GoodBookDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): GoodBookDatabase {
 
-            Log.d(TAG, "buildDatabase in GoodBookDatabase is called")
-            return Room.databaseBuilder(context, GoodBookDatabase::class.java, "gb_database")
+            return Room.databaseBuilder(context, GoodBookDatabase::class.java, "goodbook_ver6")
+
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)

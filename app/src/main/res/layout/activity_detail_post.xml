@@ -51,6 +51,7 @@
         android:padding="20dp">
         
         <ImageView
+            android:id="@+id/book_img"
             android:layout_width="0dp"
             android:layout_height="230dp"
             android:layout_weight="0.45"
@@ -67,6 +68,7 @@
             android:layout_gravity="center">
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đắc nhân tâm"
@@ -74,6 +76,7 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tác giả: Dale Carnegie"
@@ -142,15 +145,95 @@
                     app:strokeWidth="1dp"
                     app:strokeColor="@color/black">
                     <ImageView
+
                         android:layout_height="match_parent"
                         android:layout_width="match_parent"
-                        android:id="@+id/imageView1"
+                        android:id="@+id/avatar"
                         android:src="@drawable/noti_avatar">
                     </ImageView>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp">
+
+                <FrameLayout
+                    android:id="@+id/star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/book_writer"
+                    app:layout_constraintTop_toBottomOf="@+id/book_writer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:elevation="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="12dp"
+                        android:src="@drawable/ic_baseline_star_24"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/star"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="12dp"
+                        android:src="@drawable/ic_baseline_star_24"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/star"
+                        android:layout_marginStart="12dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="12dp"
+                        android:src="@drawable/ic_baseline_star_24"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/star"
+                        android:layout_marginStart="24dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="12dp"
+                        android:src="@drawable/ic_baseline_star_half_24"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/star"
+                        android:layout_marginStart="36dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="12dp"
+                        android:src="@drawable/ic_baseline_star_border_24"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/star"
+                        android:layout_marginStart="48dp"/>
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/star_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/grey_100"
+                    android:text="4.5"
+                    android:textSize="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/star"
+                    app:layout_constraintTop_toBottomOf="@id/book_writer"
+                    android:elevation="5dp"/>
+            </LinearLayout>
         </LinearLayout>
         
     </LinearLayout>
@@ -207,6 +290,7 @@
             app:strokeColor="@color/black"
             android:layout_marginEnd="15dp">
             <ImageView
+                android:id="@+id/my_avt"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:src="@drawable/my_avatar">
@@ -222,7 +306,10 @@
             android:padding="5dp"
             android:paddingStart="8dp"/>
 
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_send" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -38,6 +38,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đăng"
@@ -58,46 +59,62 @@
         android:weightSum="1"
         android:layout_marginTop="10dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_img"
+            android:layout_width="0dp"
+            android:layout_height="210dp"
             android:orientation="vertical"
             android:elevation="10dp"
+            android:layout_weight="0.4"
             android:background="@drawable/add_avatar_border"
-            android:paddingTop="80dp"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
-            android:paddingBottom="60dp"
+
             android:layout_marginStart="30dp">
 
             <ImageView
+                android:id="@+id/ic_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add"
-                app:tint="@color/add_color" />
+                app:tint="@color/add_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ảnh"
                 android:textSize="20dp"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ic_add"/>
+
+            <ImageView
+                android:id="@+id/source_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="0.85"
+            android:layout_weight="0.55"
             android:layout_marginStart="20dp"
             android:layout_gravity="center">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tên sách">
             </com.google.android.material.textfield.TextInputEditText>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tác giả"
@@ -138,11 +155,16 @@
             android:textStyle="bold"/>
 
         <EditText
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text|textMultiLine"
-            android:background="@color/post_edittext"/>
+            android:background="@color/post_edittext"
+            android:gravity="top|start"
+            android:padding="10dp"/>
 
 
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

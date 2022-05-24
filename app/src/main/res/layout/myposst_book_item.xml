@@ -25,13 +25,12 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="5dp">
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintStart_toStartOf="parent"></androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/image_book"
@@ -90,6 +89,7 @@
             tools:ignore="ImageContrastCheck" />
 
         <FrameLayout
+            android:id="@+id/star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/book_writer"
@@ -146,6 +146,20 @@
                 android:layout_marginStart="48dp"/>
 
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/star_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/grey_100"
+            android:text="Chưa có đánh giá"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/star"
+            app:layout_constraintTop_toBottomOf="@id/book_writer"
+            android:elevation="5dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 </LinearLayout>
