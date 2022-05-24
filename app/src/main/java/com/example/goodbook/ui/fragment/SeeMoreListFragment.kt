@@ -47,7 +47,7 @@ class SeeMoreListFragment: Fragment() {
         val adapter = HomeBookCategoriesItemAdapter(viewModel, this.viewLifecycleOwner) { post: Post ->
             Log.d(TAG, "Detail Post View!")
             val postDetailIntent = Intent(this.activity, DetailPostActivity::class.java)
-            postDetailIntent.putExtra("postId", post.id)
+            postDetailIntent.putExtra("post", post.id)
             startActivity(postDetailIntent)
         }
 

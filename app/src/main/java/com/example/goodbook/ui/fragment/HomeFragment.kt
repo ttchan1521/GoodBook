@@ -57,6 +57,8 @@ class HomeFragment : Fragment() {
 
                 savedPostTab.setOnClickListener {
                     val savedPostIntent = Intent(activity, SavedPostActivity::class.java)
+                    savedPostIntent.putExtra("userId", userId)
+                    savedPostIntent.putExtra("oldActivity", "MainActivity")
                     startActivity(savedPostIntent)
                 }
 
@@ -64,8 +66,8 @@ class HomeFragment : Fragment() {
                 bottomMenuView?.visibility = android.view.View.INVISIBLE
 
                 logout.setOnClickListener {
-                    val savedPostIntent = Intent(activity, LoginActivity::class.java)
-                    startActivity(savedPostIntent)
+                    val logoutIntent = Intent(activity, LoginActivity::class.java)
+                    startActivity(logoutIntent)
                 }
             }
 
@@ -84,7 +86,7 @@ class HomeFragment : Fragment() {
                     if (contentFragment.findNavController().currentDestination?.id == R.id.firsthomepage) {
                         val action = FirstHomePageFragmentDirections
                             .actionFirsthomepageToSeeMoreListFragment(
-                                searchTextField.editText.toString(),
+                                searchTextInput.text.toString(),
                                 PageType.SEARCHED_RESULTS,
                                 ResultsRelatedTopic.NULL,
                                 -99
@@ -95,7 +97,7 @@ class HomeFragment : Fragment() {
                     else if (contentFragment.findNavController().currentDestination?.id == R.id.seeMoreListFragment) {
                         val action = SeeMoreListFragmentDirections
                             .actionSeeMoreListFragmentSelf(
-                                searchTextField.editText.toString(),
+                                searchTextInput.text.toString(),
                                 PageType.SEARCHED_RESULTS,
                                 ResultsRelatedTopic.NULL,
                                 -99

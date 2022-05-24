@@ -143,10 +143,10 @@ interface GoodBookDao {
     @Query("SELECT * FROM posts")
     fun getAllPosts(): Flow<List<Post>>
 
-    @Query("SELECT * FROM posts ORDER BY time LIMIT 7")
+    @Query("SELECT * FROM posts ORDER BY time DESC LIMIT 7")
     fun get7MostRecentlyPosts(): Flow<List<Post>>
 
-    @Query("SELECT * FROM posts ORDER BY time")
+    @Query("SELECT * FROM posts ORDER BY time DESC")
     fun getAllMostRecentlyPosts(): Flow<List<Post>>
 
     @Query("SELECT * FROM posts " +
@@ -182,5 +182,9 @@ interface GoodBookDao {
 
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
+
+    // A method to get all Post that User has userId saved
+    @Query("SELECT posts.* FROM save JOIN posts ON (posts.id = save.post_id) WHERE save.user_id = :userId")
+    fun getSavedPostsByUserId(userId: Int): Flow<List<Post>>
 
 }

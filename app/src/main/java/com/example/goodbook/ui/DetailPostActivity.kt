@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodbook.GoodBookApplication
@@ -15,6 +16,9 @@ import com.example.goodbook.databinding.ActivityDetailPostBinding
 import com.example.goodbook.ui.viewmodel.PostModel
 import com.example.goodbook.ui.viewmodel.PostViewModelFactory
 import com.ms.square.android.expandabletextview.ExpandableTextView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 
 
 class DetailPostActivity : AppCompatActivity() {
@@ -44,6 +48,7 @@ class DetailPostActivity : AppCompatActivity() {
         }
 
         val post_id = intent?.extras?.getInt("post")
+        val user_id = intent?.extras?.getInt("userId")
 
         postModel.getDetailPost(post_id!!).observe(this, Observer { item ->
             item.let {
@@ -55,5 +60,11 @@ class DetailPostActivity : AppCompatActivity() {
                 expTv.text = it.description
             }
         })
+
+        binding.markAsSave.setOnClickListener {
+            if (user_id != null) {
+                postModel.savePost(user_id, post_id)
+            }
+        }
     }
 }

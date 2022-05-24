@@ -19,9 +19,17 @@ class LoginViewModel(private val goodBookDao: GoodBookDao) : ViewModel() {
             return user
     }
 
+
     fun updateUser(user: User) {
         viewModelScope.launch {
             goodBookDao.update(user)
+        }
+    }
+    
+    fun insertUser(user: User) {
+        viewModelScope.launch {
+            goodBookDao.insert(user)
+
         }
     }
 

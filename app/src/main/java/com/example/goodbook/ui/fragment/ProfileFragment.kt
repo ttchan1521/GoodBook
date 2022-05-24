@@ -13,8 +13,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.goodbook.R
+import com.example.goodbook.ui.SavedPostActivity
 import com.example.goodbook.ui.profile.AccountActivity
-import com.example.goodbook.ui.profile.SavePostActivity
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -74,7 +74,7 @@ class ProfileFragment : Fragment() {
 
         savedBtn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                val intent = Intent(context, SavePostActivity::class.java)
+                val intent = Intent(context, SavedPostActivity::class.java)
                 startActivity(intent)
             }
         })

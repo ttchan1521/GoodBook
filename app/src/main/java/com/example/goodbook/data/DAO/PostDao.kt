@@ -3,6 +3,7 @@ package com.example.goodbook.data.DAO
 import androidx.room.*
 import com.example.goodbook.model.Post
 import com.example.goodbook.model.PostDetail
+import com.example.goodbook.model.SavedBook
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,6 +14,9 @@ interface PostDao {
     // A method to retrieve a Post from the database by id
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
+
+    @Query("SELECT * FROM posts WHERE user = :userId")
+    fun getMyPost(userId: Int) : Flow<List<Post>>
 
     @Query("SELECT title, img_scr, book_writer, description, posts.time, users.avt, category.type, AVG(star_quantity) as star FROM posts " +
             "INNER JOIN users ON posts.user = users.id " +
@@ -34,4 +38,10 @@ interface PostDao {
     // A method to delete a Post from the database.
     @Delete
     suspend fun delete(post: Post)
+
+
+    // A method to insert a SavedBook into the database
+    //  (use OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(saveBook: SavedBook)
 }
