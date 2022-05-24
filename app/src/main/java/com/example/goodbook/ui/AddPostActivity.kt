@@ -29,6 +29,7 @@ import com.example.goodbook.ui.viewmodel.PostModel
 import com.example.goodbook.ui.viewmodel.PostViewModelFactory
 
 
+
 class AddPostActivity : AppCompatActivity() {
     private val viewModel: CategoryModel by viewModels() {
         CategoryViewModelFactory(
@@ -36,6 +37,7 @@ class AddPostActivity : AppCompatActivity() {
             goodBookDao()
         )
     }
+
     private val postModel: PostModel by viewModels() {
         PostViewModelFactory(
             (application as GoodBookApplication).database.postDao()
