@@ -1,13 +1,16 @@
 package com.example.goodbook.ui.fragment
 
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.goodbook.R
 import com.example.goodbook.ui.profile.AccountActivity
@@ -42,6 +45,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view: View = inflater.inflate(
             R.layout.fragment_profile,
             container, false
@@ -52,6 +56,14 @@ class ProfileFragment : Fragment() {
         accountInfoBtn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 val intent = Intent(context, AccountActivity::class.java)
+
+                val userFullname = activity?.intent?.extras?.getString("userFullName")
+                val userAvt = activity?.intent?.extras?.getString("userAvt")
+                val password = activity?.intent?.extras?.getString("password")
+
+                intent.putExtra("userFullName", userFullname)
+                intent.putExtra("userAvt", userAvt)
+                intent.putExtra("password", password)
                 startActivity(intent)
             }
         })
@@ -63,6 +75,16 @@ class ProfileFragment : Fragment() {
             }
         })
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val user_fullname = activity?.intent?.extras?.getString("userFullName")
+        val user_avt = activity?.intent?.extras?.getString("userAvt")
+
+        val name = view.findViewById<View>(R.id.name) as TextView
+        name.setText(user_fullname)
     }
 
     companion object {

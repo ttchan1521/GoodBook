@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.goodbook.R
@@ -20,9 +21,17 @@ class PasswordAuthentication : AppCompatActivity() {
 
         val resetPassBtn: Button = findViewById(R.id.next_to_change_password_btn)
         val forgetPass: TextView = findViewById(R.id.forget_pass)
+        val oldPassword: EditText = findViewById(R.id.old_password)
+        val password = getIntent().getStringExtra("password")
         resetPassBtn.setOnClickListener {
-            val intent = Intent(this, ResetPassword2Activity::class.java)
-            startActivity(intent)
+            if (!password.toString().equals(oldPassword.text.toString())) {
+                oldPassword.setError("Mật khẩu không chính xác")
+            } else {
+                val intent = Intent(this, ResetPassword2Activity::class.java)
+
+                startActivity(intent)
+            }
+
         }
 
         forgetPass.setOnClickListener {

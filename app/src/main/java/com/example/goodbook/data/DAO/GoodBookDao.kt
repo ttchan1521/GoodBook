@@ -43,6 +43,9 @@ interface GoodBookDao {
     @Update
     suspend fun update(user: User)
 
+//    @Query("UPDATE * FROM users WHERE name= :name")
+//    fun updateNameUser(name: String) : Flow<User>
+
     // A method to delete a User from the database.
     @Delete
     suspend fun delete(user: User)

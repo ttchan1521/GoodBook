@@ -69,7 +69,7 @@
                     android:id="@+id/value_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nguyễn Văn A"
+                    android:text=""
                     android:theme="@style/account_field" />
             </LinearLayout>
 
@@ -115,6 +115,7 @@
                 android:hint="Nhập họ và tên" >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"/>
@@ -122,6 +123,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/saveBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
