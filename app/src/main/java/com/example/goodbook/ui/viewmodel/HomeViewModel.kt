@@ -1,8 +1,5 @@
 package com.example.goodbook.ui.viewmodel
 
-import android.content.Context
-import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.example.goodbook.data.DAO.GoodBookDao
 import com.example.goodbook.model.*

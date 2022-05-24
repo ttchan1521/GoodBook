@@ -17,17 +17,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login" />
 
-    <TextView
-        android:id="@+id/text1Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="308dp"
-        android:layout_marginTop="32dp"
-        android:text="Bỏ qua"
-        android:textColor="#6C55FD"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/text1Login"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="312dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="Bỏ qua"-->
+<!--        android:textColor="#6C55FD"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/text2Login"
@@ -94,6 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text3Login">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldMailLoginInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F5F3FF" />
@@ -112,9 +113,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textFieldMailLogin">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textPassLoginInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F5F3FF" />
+            android:background="#F5F3FF"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -126,7 +129,7 @@
         android:layout_marginEnd="161dp"
         android:backgroundTint="#6BE57F"
         android:text="Xác nhận"
-        android:onClick="successLogin"
+        android:onClick="checkLogin"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -18,6 +18,14 @@ interface GoodBookDao {
     @Query("SELECT * FROM users WHERE id = :id")
     fun getUser(id: Int) : Flow<User>
 
+    // A method to retrieve a User from the database by mail or phone
+    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone)")
+    fun getUser(mail_phone: String) : Flow<User>
+
+    // A method to retrieve a User from the database by mail or phone and to check password
+    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone) AND password = :pass")
+    fun getUser(mail_phone: String, pass: String) : Flow<User>
+
     // A method to insert a User into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
