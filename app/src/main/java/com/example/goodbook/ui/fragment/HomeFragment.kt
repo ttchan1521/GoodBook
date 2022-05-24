@@ -44,17 +44,17 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //TODO(cần sửa cho hợp lý khi đẩy thông tin người dùng từ Login vô Main)
-//        val user_fullname = activity?.intent?.extras?.getString("userFullName")
-//        val user_avt = activity?.intent?.extras?.getString("userAvt")
-//        val userId = activity?.intent?.extras?.getInt("userId")
+        val user_fullname = activity?.intent?.extras?.getString("userFullName")
+        val user_avt = activity?.intent?.extras?.getString("userAvt")
+        val userId = activity?.intent?.extras?.getInt("userId")
 
         val user1 = User("92363", "Nguyễn Văn A", "92634937", "jsgdy@gmial.com", "avt2")
         val user2 = User("123", "Nguyễn Thị B", "27462937", "ssfg@gmial.com", "avt1")
 
 
         binding.apply {
-            userFullName = "Nguyễn Văn A"
-            userAvt = "avt1"
+            userFullName = user_fullname
+            userAvt = user_avt
 
             menuOn.setOnClickListener {
                 menuBox.visibility = android.view.View.VISIBLE

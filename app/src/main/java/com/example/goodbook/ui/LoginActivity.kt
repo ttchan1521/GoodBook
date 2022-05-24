@@ -24,7 +24,8 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels() {
         LoginViewModelFactory(
             (application as GoodBookApplication).database
-                .goodBookDao()
+                .goodBookDao(),
+            this
         )
     }
 
@@ -32,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val allusers = viewModel.allUsers.observe(this) {
+            Log.d(TAG, "viewModel.allUsers.observe is called")
+        }
     }
 
     fun forgotPasswordAction(view: View){
@@ -50,27 +55,29 @@ class LoginActivity : AppCompatActivity() {
 
         if (emailOrPhoneNumberInput != null && passwordInput != null) {
             lifecycleScope.launch {
-                if (viewModel.checkLoginUser(emailOrPhoneNumberInput.toString(), passwordInput.toString())) {
-                    val user: LiveData<User>? =
-                        viewModel.getUserByMailOrPhone(emailOrPhoneNumberInput.toString())
-                    successLogin(user)
-                } else {
-                    failLogin()
+                val user = viewModel.getUserByMailOrPhone(emailOrPhoneNumberInput.toString(), passwordInput.toString())
+                    .observe(this@LoginActivity) {
+                    if (it.name != null) {
+                        successLogin(it)
+                    }
+                    else {
+                        failLogin()
+                    }
                 }
             }
         }
 
     }
 
-    fun successLogin(user: LiveData<User>?) {
+    fun successLogin(user: User?) {
         val intent: Intent = Intent(this, MainActivity::class.java)
 
-        Log.d(TAG, "successLogin: " + "ok")
-
         // lấy user vừa đăng nhập thành công ném vô đây
-        val userAvt = user?.value?.avt
-        val userId = user?.value?.userId
-        val userFullname = user?.value?.name
+        val userAvt = user?.avt
+        val userId = user?.userId
+        val userFullname = user?.name
+
+        Log.d(TAG, "successLogin:  + ${user?.userId}")
 
         intent.putExtra("userFullName", userFullname)
         intent.putExtra("userAvt", userAvt)

@@ -37,7 +37,7 @@ abstract class GoodBookDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): GoodBookDatabase {
             Log.d(TAG, "buildDatabase in GoodBookDatabase is called")
-            return Room.databaseBuilder(context, GoodBookDatabase::class.java, "good_book_dtb")
+            return Room.databaseBuilder(context, GoodBookDatabase::class.java, "gb_database")
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
@@ -50,6 +50,7 @@ abstract class GoodBookDatabase : RoomDatabase() {
                         }
                     }
                 })
+                .fallbackToDestructiveMigration()
                 .build()
         }
     }

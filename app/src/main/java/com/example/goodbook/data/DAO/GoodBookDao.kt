@@ -19,11 +19,11 @@ interface GoodBookDao {
     fun getUser(id: Int) : Flow<User>
 
     // A method to retrieve a User from the database by mail or phone
-    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone)")
+    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone) LIMIT 1")
     fun getUser(mail_phone: String) : Flow<User>
 
     // A method to retrieve a User from the database by mail or phone and to check password
-    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone) AND password = :pass")
+    @Query("SELECT * FROM users WHERE (email = :mail_phone OR phone = :mail_phone) AND password = :pass LIMIT 1")
     fun getUser(mail_phone: String, pass: String) : Flow<User>
 
     // A method to insert a User into the database
