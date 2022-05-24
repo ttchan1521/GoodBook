@@ -30,7 +30,6 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
     }
     lateinit var etName: EditText
     lateinit var etEmail: EditText
-    lateinit var etPhone:EditText
     lateinit var etPassword:EditText
     lateinit var etRepeatPassword:EditText
     val MIN_PASSWORD_LENGTH = 6;
@@ -53,7 +52,6 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
     fun viewInitializations() {
         etName = findViewById(R.id.et_name)
         etEmail = findViewById(R.id.et_email)
-        etPhone = findViewById(R.id.et_phone)
         etPassword = findViewById(R.id.et_password)
         etRepeatPassword = findViewById(R.id.et_repeat_pass)
     }
@@ -67,24 +65,20 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
             etEmail.setError("Email không được để trống")
             return false
         }
-        if (etPassword.text.toString().equals("")) {
-            etPassword.setError("Password không được để trống")
-            return false
-        }
-        if (etRepeatPassword.text.toString().equals("")) {
-            etRepeatPassword.setError("Vui lòng xác nhận lại password")
-            return false
-        }
-
-        // checking the proper email format
         if (!isEmailValid(etEmail.text.toString())) {
             etEmail.setError("Email không hợp lệ")
             return false
         }
-
-        // checking minimum password Length
+        if (etPassword.text.toString().equals("")) {
+            etPassword.setError("Password không được để trống")
+            return false
+        }
         if (etPassword.text.length < MIN_PASSWORD_LENGTH) {
             etPassword.setError("Password phải nhiều hơn " + MIN_PASSWORD_LENGTH + "characters")
+            return false
+        }
+        if (etRepeatPassword.text.toString().equals("")) {
+            etRepeatPassword.setError("Vui lòng xác nhận lại password")
             return false
         }
 
@@ -111,11 +105,10 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
             // Input is valid, here send data to your server
 
             val name = etName.text.toString()
-            val phone = etPhone.text.toString()
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             val repeatPassword = etRepeatPassword.text.toString()
-            userDB?.goodBookDao()?.insert(User(name = name, password = password, email = email, phoneNumber = phone, avt = ""))
+            userDB?.goodBookDao()?.insert(User(name = name, password = password, email = email, phoneNumber = "", avt = ""))
             Toast.makeText(this,"Register Success",Toast.LENGTH_SHORT).show()
             finish()
 
