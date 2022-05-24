@@ -108,7 +108,7 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             val repeatPassword = etRepeatPassword.text.toString()
-            userDB?.goodBookDao()?.insert(User(name = name, password = password, email = email, phoneNumber = "", avt = ""))
+            userDB?.goodBookDao()?.insert(User(name = name, password = password, email = email, phoneNumber = ""))
             Toast.makeText(this,"Register Success",Toast.LENGTH_SHORT).show()
             finish()
 

@@ -22,13 +22,8 @@ import java.util.*
 )
 data class Post (
     val title: String,
-
-
     @Nullable
     val img_scr: Bitmap? = null,
-
-    @NonNull
-    val img_scr: String,
     val book_writer: String,
     val description: String,
     val user: Int,

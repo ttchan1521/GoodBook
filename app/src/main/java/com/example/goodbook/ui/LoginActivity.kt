@@ -16,6 +16,7 @@ import com.example.goodbook.model.User
 import com.example.goodbook.ui.forgotPassword.ForgotPasswordActivity
 import com.example.goodbook.ui.viewmodel.LoginViewModel
 import com.example.goodbook.ui.viewmodel.LoginViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 
@@ -86,7 +87,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun failLogin() {
+        showSnackbar()
+    }
 
+    private fun showSnackbar(): Boolean {
+        val squeezeText = "Đăng nhập thất bại"
+        Snackbar.make(
+            findViewById(R.id.loginConstraitLayout),
+            squeezeText,
+            Snackbar.LENGTH_SHORT
+        ).show()
+        return true
     }
 
 }

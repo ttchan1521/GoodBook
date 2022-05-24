@@ -39,7 +39,7 @@ class HomeBookCategoriesItemAdapter (
             binding.post = post
 
             (viewModel as HomeViewModel).getRatingOfPost(post.id).observe(lifecycleOwner) {
-                val rating_star = it.star_quantity
+                val rating_star = it
 
                 for (i in 0..rating_star) {
                     (binding.starFrameLayout.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)

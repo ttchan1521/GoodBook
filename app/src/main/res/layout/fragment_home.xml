@@ -127,8 +127,8 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                    tools:ignore="ImageContrastCheck"
-                    app:imagesrc="@{userAvt}" />
+                    tools:ignore="ImageContrastCheck"/>
+<!--                    app:imagesrc="@{userAvt}" />-->
 
                 <TextView
                     android:id="@+id/uer_fullname"

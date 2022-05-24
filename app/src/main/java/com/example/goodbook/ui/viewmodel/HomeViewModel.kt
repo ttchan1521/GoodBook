@@ -57,7 +57,7 @@ class HomeViewModel(private val goodBookDao : GoodBookDao) : ViewModel() {
         return allCategoriesWithPosts
     }
 
-    public fun getRatingOfPost(post_id: Int): LiveData<Rating> {
+    public fun getRatingOfPost(post_id: Int): LiveData<Int> {
         return goodBookDao.getRating(post_id).asLiveData()
     }
 

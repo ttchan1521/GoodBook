@@ -47,9 +47,6 @@ class HomeFragment : Fragment() {
         val user_avt = activity?.intent?.extras?.getString("userAvt")
         val userId = activity?.intent?.extras?.getInt("userId")
 
-        val user1 = User("92363", "Nguyễn Văn A", "92634937", "jsgdy@gmial.com", "avt2")
-        val user2 = User("123", "Nguyễn Thị B", "27462937", "ssfg@gmial.com", "avt1")
-
 
         binding.apply {
             userFullName = user_fullname

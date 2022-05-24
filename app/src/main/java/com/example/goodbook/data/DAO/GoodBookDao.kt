@@ -36,8 +36,8 @@ interface GoodBookDao {
     fun insertUsers(users: List<User>)
 
     // A method to retrieve a Rating from the database by post_id
-    @Query("SELECT * FROM ratings WHERE post_id = :post_id")
-    fun getRating(post_id: Int) : Flow<Rating>
+//    @Query("SELECT * FROM ratings WHERE post_id = :post_id")
+//    fun getRating(post_id: Int) : Flow<Rating>
 
     // A method to update a User that is already in the database
     @Update
