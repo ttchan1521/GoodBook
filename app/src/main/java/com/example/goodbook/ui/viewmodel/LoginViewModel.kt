@@ -7,6 +7,7 @@ import com.example.goodbook.data.DAO.GoodBookDao
 import com.example.goodbook.data.GoodBookDatabase
 import com.example.goodbook.model.BookCategory
 import com.example.goodbook.model.User
+import kotlinx.coroutines.launch
 
 class LoginViewModel(private val goodBookDao: GoodBookDao) : ViewModel() {
 
@@ -15,6 +16,12 @@ class LoginViewModel(private val goodBookDao: GoodBookDao) : ViewModel() {
     suspend fun getUserByMailOrPhone(mail_phone: String, pass: String): LiveData<User> {
             val user = goodBookDao.getUser(mail_phone, pass).asLiveData()
             return user
+    }
+
+    fun insertUser(user: User) {
+        viewModelScope.launch {
+            goodBookDao.insert(user)
+        }
     }
 
 }

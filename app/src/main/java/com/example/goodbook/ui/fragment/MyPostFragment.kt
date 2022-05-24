@@ -63,7 +63,9 @@ class MyPostFragment : Fragment() {
         val adapter = MyPostAdapter(starModel = starModel)
         recyclerView.adapter = adapter
 
-        postModel.allPost.observe(this.viewLifecycleOwner) {item ->
+        val userId = activity?.intent?.extras?.getInt("userId")
+
+        postModel.getMyPost(userId!!).observe(this.viewLifecycleOwner) {item ->
             item?.let {
                 for (i in it) {
                     i.setStar(getAvg(i.id))
@@ -76,6 +78,7 @@ class MyPostFragment : Fragment() {
 
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(context, AddPostActivity::class.java)
+            intent.putExtra("userId", userId)
             startActivity(intent)
         }
     }

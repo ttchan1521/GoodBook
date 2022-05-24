@@ -12,6 +12,10 @@ class PostModel(private val postDao: PostDao) : ViewModel(){
 
     val allPost: LiveData<List<Post>> = postDao.getAllPosts().asLiveData()
 
+    fun getMyPost(userId: Int): LiveData<List<Post>> {
+        return postDao.getMyPost(userId).asLiveData()
+    }
+
     fun addNewPost(title: String, img: Bitmap?, author: String, description: String,
                     user: Int, category: Int) {
         val post = Post(title, img, author, description, user, category, Date())

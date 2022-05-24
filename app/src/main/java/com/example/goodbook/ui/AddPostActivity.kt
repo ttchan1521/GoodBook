@@ -43,7 +43,8 @@ class AddPostActivity : AppCompatActivity() {
         )
     }
 
-    private val category = mutableListOf<String>()
+    private val category = listOf<String>("Chính trị - Pháp luật", "Khoa học công nghệ - kinh tế", "Văn học - Nghệ thuật", "Văn hóa xã hội - Lịch sử",
+                                            "Giáo trình", "Tâm lý- Tôn giáo")
 
     var pickedPhoto: Uri? = null
     var pickedBitmap : Bitmap? = null
@@ -58,15 +59,6 @@ class AddPostActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener {
             finish()
         }
-
-
-        viewModel.allCategories.observe(this, Observer { categories ->
-            for (cate in categories) {
-                category.add(cate.type)
-            }
-
-        })
-
 
 
         val spinner = binding.listCategory
@@ -97,14 +89,14 @@ class AddPostActivity : AppCompatActivity() {
             pickedPhoto()
         }
 
-
+        val userId = intent?.extras?.getInt("userId")
         binding.done.setOnClickListener {
             postModel.addNewPost(
                 binding.title.text.toString(),
                 pickedBitmap,
                 binding.author.text.toString(),
                 binding.description.text.toString(),
-                1,1
+                userId!!, spinner.selectedItemPosition - 1
             )
             Toast.makeText(this@AddPostActivity, "Đăng thành công", Toast.LENGTH_SHORT).show()
             finish()
