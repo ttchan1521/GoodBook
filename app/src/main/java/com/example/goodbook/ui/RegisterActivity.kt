@@ -9,9 +9,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.viewModels
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.data.GoodBookDatabase
 import com.example.goodbook.model.User
+import com.example.goodbook.ui.viewmodel.LoginViewModel
+import com.example.goodbook.ui.viewmodel.LoginViewModelFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,6 +23,12 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class RegisterActivity : AppCompatActivity(), CoroutineScope {
+    private val viewModel: LoginViewModel by viewModels() {
+        LoginViewModelFactory(
+            (application as GoodBookApplication).database
+                .goodBookDao()
+        )
+    }
     private var job: Job = Job()
 
     override val coroutineContext: CoroutineContext
@@ -43,9 +53,7 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
         viewInitializations()
         val registerBtn: Button = findViewById(R.id.buttonRegister)
         registerBtn.setOnClickListener {
-            launch {
-                performSignUp()
-            }
+            performSignUp()
         }
     }
 
@@ -99,7 +107,7 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    suspend fun performSignUp () {
+    fun performSignUp () {
         if (validateInput()) {
 
             // Input is valid, here send data to your server
@@ -108,7 +116,7 @@ class RegisterActivity : AppCompatActivity(), CoroutineScope {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
             val repeatPassword = etRepeatPassword.text.toString()
-            userDB?.goodBookDao()?.insert(User(name = name, password = password, email = email, phoneNumber = ""))
+            viewModel.insertUser(User(name = name, password = password, email = email, phoneNumber = ""))
             Toast.makeText(this,"Register Success",Toast.LENGTH_SHORT).show()
             finish()
 

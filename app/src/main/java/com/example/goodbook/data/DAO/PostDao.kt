@@ -14,6 +14,9 @@ interface PostDao {
     @Query("SELECT * FROM posts WHERE id = :id")
     fun getPost(id: Int) : Flow<Post>
 
+    @Query("SELECT * FROM posts WHERE user = :userId")
+    fun getMyPost(userId: Int) : Flow<List<Post>>
+
     @Query("SELECT title, img_scr, book_writer, description, posts.time, users.avt, category.type, AVG(star_quantity) as star FROM posts " +
             "INNER JOIN users ON posts.user = users.id " +
             "INNER JOIN category ON posts.category = category.id " +
