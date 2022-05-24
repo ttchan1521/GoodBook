@@ -1,6 +1,7 @@
 package com.example.goodbook
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -17,16 +18,14 @@ fun setImageUri(view: ImageView, imageUri: String?) {
 }
 
 @BindingAdapter("imagesrc")
-fun setImage(view: ImageView, imageSrc: String?) {
-    val resID: Int = view.resources.getIdentifier(imageSrc, "drawable", view.context.packageName);
-    view.setImageResource(resID)
+fun setImage(view: ImageView, imageSrc: Bitmap?) {
+    view.setImageBitmap(imageSrc)
 }
 
 
 @BindingAdapter("imagesrc")
-fun setImage(view: ShapeableImageView, imageSrc: String?) {
-    val resID: Int = view.resources.getIdentifier(imageSrc, "drawable", view.context.packageName);
-    view.setImageResource(resID)
+fun setImage(view: ShapeableImageView, imageSrc: Bitmap?) {
+    view.setImageBitmap(imageSrc)
 }
 
 

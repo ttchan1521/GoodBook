@@ -142,10 +142,10 @@ interface GoodBookDao {
     @Query("SELECT * FROM posts")
     fun getAllPosts(): Flow<List<Post>>
 
-    @Query("SELECT * FROM posts ORDER BY time LIMIT 7")
+    @Query("SELECT * FROM posts ORDER BY time DESC LIMIT 7")
     fun get7MostRecentlyPosts(): Flow<List<Post>>
 
-    @Query("SELECT * FROM posts ORDER BY time")
+    @Query("SELECT * FROM posts ORDER BY time DESC")
     fun getAllMostRecentlyPosts(): Flow<List<Post>>
 
     @Query("SELECT * FROM posts " +

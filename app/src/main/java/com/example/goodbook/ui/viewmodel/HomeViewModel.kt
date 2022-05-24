@@ -1,5 +1,7 @@
 package com.example.goodbook.ui.viewmodel
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.goodbook.data.DAO.GoodBookDao
 import com.example.goodbook.model.*
@@ -33,27 +35,28 @@ class HomeViewModel(private val goodBookDao : GoodBookDao) : ViewModel() {
         return goodBookDao.getPostsRelatedToKeyWord(formattedKeyword).asLiveData()
     }
 
-    public fun get7PostsForCategories(lifecycleOwner: LifecycleOwner): List<CategoryWithPost> {
-        var allCategoriesWithPosts: List<CategoryWithPost> = emptyList()
+    public fun get7PostsForCategories(lifecycleOwner: LifecycleOwner): MutableList<CategoryWithPost> {
+        var allCategoriesWithPosts: MutableList<CategoryWithPost> = mutableListOf()
 
         //Lay cac post co nhieu nguoi rate nhat
-        allCategoriesWithPosts.plus(CategoryWithPost("Được đánh giá nhiều", -1,
+        allCategoriesWithPosts.add(CategoryWithPost("Được đánh giá nhiều", -1,
             goodBookDao.get7MostRatePosts().asLiveData()))
+        Log.d(TAG, "get7PostsForCategories: ${allCategoriesWithPosts.size}")
 
         //Lay cac post duoc dang gan day nhat
-        allCategoriesWithPosts.plus(CategoryWithPost("Gần đây", -2,
+        allCategoriesWithPosts.add(CategoryWithPost("Gần đây", -2,
             goodBookDao.get7MostRecentlyPosts().asLiveData()))
 
         allCategories.observe(lifecycleOwner) { listOfCategories->
             listOfCategories.forEach {
+                Log.d(TAG, "get7PostsForCategories: ${it.type}")
                 val title = it.type
                 val id = it.id
                 val posts = goodBookDao.get7PostsRelateToCategory(it.id).asLiveData()
 
-                allCategoriesWithPosts.plus(CategoryWithPost(title, id, posts))
+                allCategoriesWithPosts.add(CategoryWithPost(title, id, posts))
             }
         }
-
         return allCategoriesWithPosts
     }
 

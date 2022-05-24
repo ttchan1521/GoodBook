@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
@@ -41,10 +42,12 @@ class HomeListAdapter(
         fun bind(category: CategoryWithPost, clickListener: () -> Unit, lifecycleOwner: LifecycleOwner, activity: Activity) {
             binding.category = category
 
+            binding.moreText.visibility = VISIBLE
+
             binding.bookCategoryRecycleview.adapter = HomeBookCategoriesItemAdapter(viewModel, lifecycleOwner) { post: Post ->
                 Log.d(ContentValues.TAG, "Detail Post View through Home Page")
                 val postDetailIntent = Intent(activity, DetailPostActivity::class.java)
-                postDetailIntent.putExtra("postId", post.id)
+                postDetailIntent.putExtra("post", post.id)
                 activity.startActivity(postDetailIntent)
             }
 
@@ -65,7 +68,11 @@ class HomeListAdapter(
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = getItem(position)
 
-        holder.bind(category, { clickListener(category.id, category.title) }, lifecycleOwner, activity)
+        category.posts.observe(lifecycleOwner) {
+            if (it.size > 0) {
+                holder.bind(category, { clickListener(category.id, category.title) }, lifecycleOwner, activity)
+            }
+        }
     }
 
     companion object DiffCallback: DiffUtil.ItemCallback<CategoryWithPost>() {
