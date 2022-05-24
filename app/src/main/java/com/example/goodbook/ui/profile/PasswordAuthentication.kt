@@ -28,7 +28,6 @@ class PasswordAuthentication : AppCompatActivity() {
                 oldPassword.setError("Mật khẩu không chính xác")
             } else {
                 val intent = Intent(this, ResetPassword2Activity::class.java)
-
                 startActivity(intent)
             }
 

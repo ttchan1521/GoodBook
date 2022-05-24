@@ -37,6 +37,7 @@ class AddPostActivity : AppCompatActivity() {
             goodBookDao()
         )
     }
+
     private val postModel: PostModel by viewModels() {
         PostViewModelFactory(
             (application as GoodBookApplication).database.postDao()

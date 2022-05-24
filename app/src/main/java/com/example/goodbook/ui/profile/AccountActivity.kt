@@ -8,14 +8,23 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.goodbook.GoodBookApplication
 import com.example.goodbook.R
 import com.example.goodbook.data.GoodBookDatabase
 import com.example.goodbook.model.User
+import com.example.goodbook.ui.viewmodel.LoginViewModel
+import com.example.goodbook.ui.viewmodel.LoginViewModelFactory
 
 
 class AccountActivity : AppCompatActivity(), View.OnClickListener {
-    private var userDB: GoodBookDatabase?= null
+    private val viewModel: LoginViewModel by viewModels() {
+        LoginViewModelFactory(
+            (application as GoodBookApplication).database
+                .goodBookDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,37 +36,38 @@ class AccountActivity : AppCompatActivity(), View.OnClickListener {
         val changePassword: ImageView = findViewById<View>(R.id.change_password_btn) as ImageView
         val closeEditNameFieldBtn: ImageView = findViewById<View>(R.id.change_name_clicked_btn) as ImageView
         val backBtn: ImageView = findViewById(R.id.back_btn)
+        val inputName: EditText = findViewById(R.id.inputName)
+        val saveBtn: TextView = findViewById(R.id.saveBtn)
+        val strName: String = inputName.text.toString()
+        val item = findViewById<View>(R.id.editNameField)
+        val openEditNameFieldBtn = findViewById<View>(R.id.change_name_btn)
+
         changePhone.setOnClickListener(this)
         changeName.setOnClickListener(this)
         changeEmail.setOnClickListener(this)
         changePassword.setOnClickListener(this)
 
-        val inputName: EditText = findViewById(R.id.inputName)
-        val saveBtn: TextView = findViewById(R.id.saveBtn)
+
         val fullName = intent.getStringExtra("userFullName")
+        val email = intent.getStringExtra("email")
+        val phone = intent.getStringExtra("phone")
+        val password = intent.getStringExtra("password")
+
         val name: TextView = findViewById(R.id.value_name)
         name.setText(fullName)
         saveBtn.setOnClickListener {
-            val strName: String = inputName.text.toString()
+            viewModel.updateUser(User(password = password.toString(), name = strName, phoneNumber = phone.toString(), email = email.toString()))
+            name.setText(strName)
+            item.visibility = View.GONE
+            closeEditNameFieldBtn.visibility = View.GONE
+            openEditNameFieldBtn.visibility = View.VISIBLE
         }
-
 
         closeEditNameFieldBtn.setOnClickListener(this)
         backBtn.setOnClickListener {
             finish()
         }
     }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        val user_fullname = activity?.intent?.extras?.getString("userFullName")
-//        val user_avt = activity?.intent?.extras?.getString("userAvt")
-//        val userId = activity?.intent?.extras?.getInt("userId")
-//
-//        val name = view.findViewById<View>(R.id.name) as TextView
-//        name.setText(user_fullname)
-//    }
 
     override fun onClick(view: View) {
         val item = findViewById<View>(R.id.editNameField)

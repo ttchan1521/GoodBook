@@ -60,10 +60,14 @@ class ProfileFragment : Fragment() {
                 val userFullname = activity?.intent?.extras?.getString("userFullName")
                 val userAvt = activity?.intent?.extras?.getString("userAvt")
                 val password = activity?.intent?.extras?.getString("password")
+                val email = activity?.intent?.extras?.getString("password")
+                val phone = activity?.intent?.extras?.getString("password")
 
                 intent.putExtra("userFullName", userFullname)
                 intent.putExtra("userAvt", userAvt)
                 intent.putExtra("password", password)
+                intent.putExtra("email", email)
+                intent.putExtra("phone", phone)
                 startActivity(intent)
             }
         })
