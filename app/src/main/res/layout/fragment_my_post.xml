@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.HomeFragment">
+    tools:context=".ui.fragment.HomeFragment"
+    android:layout_marginBottom="50dp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_textField"
@@ -39,5 +40,17 @@
         app:layout_constraintTop_toBottomOf="@+id/search_textField"
         android:layout_marginTop="20dp"
         android:padding="10dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_elements"
+        android:layout_marginBottom="@dimen/margin_between_elements"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white"
+        android:backgroundTint="@color/header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

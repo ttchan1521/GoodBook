@@ -51,6 +51,14 @@ interface GoodBookDao {
     @Query("SELECT * FROM ratings")
     fun getAllRatings(): Flow<List<Rating>>
 
+    // A method to retrieve a Rating from the database by id
+
+    @Query("SELECT SUM(star_quantity) FROM ratings WHERE post_id = :id")
+    fun getRating(id: Int) : Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM ratings WHERE post_id = :id")
+    fun getRatingCount(id: Int) : Flow<Int>
+
     // A method to insert a Rating into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -89,8 +97,10 @@ interface GoodBookDao {
     fun getAllComments(): Flow<List<Comment>>
 
     // A method to retrieve a Comment from the database by id
-    @Query("SELECT * FROM comments WHERE id = :id")
-    fun getComment(id: Long) : Flow<Comment>
+    @Query("SELECT users.name, users.avt, comments.description FROM comments " +
+            "INNER JOIN users ON comments.user_id = users.id " +
+            "WHERE post_id = :id")
+    fun getCommentPost(id: Int) : Flow<List<DetailComment>>
 
     // A method to insert a Comment into the database
     //  (use OnConflictStrategy.REPLACE)
