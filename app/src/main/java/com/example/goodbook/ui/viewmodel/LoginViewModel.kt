@@ -8,7 +8,7 @@ import com.example.goodbook.data.GoodBookDatabase
 import com.example.goodbook.model.BookCategory
 import com.example.goodbook.model.User
 
-class LoginViewModel(private val goodBookDao: GoodBookDao, private val lifecycleOwner: LifecycleOwner) : ViewModel() {
+class LoginViewModel(private val goodBookDao: GoodBookDao) : ViewModel() {
 
     val allUsers : LiveData<List<User>> = goodBookDao.getAllUsers().asLiveData()
 
@@ -19,11 +19,11 @@ class LoginViewModel(private val goodBookDao: GoodBookDao, private val lifecycle
 
 }
 
-class LoginViewModelFactory(private val goodBookDao: GoodBookDao, private val lifecycleOwner: LifecycleOwner) : ViewModelProvider.Factory {
+class LoginViewModelFactory(private val goodBookDao: GoodBookDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return LoginViewModel(goodBookDao, lifecycleOwner) as T
+            return LoginViewModel(goodBookDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

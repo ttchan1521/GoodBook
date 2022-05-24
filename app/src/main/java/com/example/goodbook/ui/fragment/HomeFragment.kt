@@ -43,7 +43,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO(cần sửa cho hợp lý khi đẩy thông tin người dùng từ Login vô Main)
         val user_fullname = activity?.intent?.extras?.getString("userFullName")
         val user_avt = activity?.intent?.extras?.getString("userAvt")
         val userId = activity?.intent?.extras?.getInt("userId")

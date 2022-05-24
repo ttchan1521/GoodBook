@@ -24,8 +24,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels() {
         LoginViewModelFactory(
             (application as GoodBookApplication).database
-                .goodBookDao(),
-            this
+                .goodBookDao()
         )
     }
 
