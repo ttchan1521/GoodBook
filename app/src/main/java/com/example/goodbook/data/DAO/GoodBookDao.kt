@@ -152,14 +152,14 @@ interface GoodBookDao {
     @Query("SELECT * FROM posts " +
             "JOIN ratings ON (posts.id = ratings.post_id) " +
             "GROUP BY post_id " +
-            "ORDER BY COUNT(user_id) DESC " +
+            "ORDER BY ratings.star_quantity DESC " +
             "LIMIT 7;")
     fun get7MostRatePosts(): Flow<List<Post>>
 
     @Query("SELECT * FROM posts " +
             "JOIN ratings ON (posts.id = ratings.post_id) " +
             "GROUP BY post_id " +
-            "ORDER BY COUNT(user_id) DESC")
+            "ORDER BY ratings.star_quantity DESC")
     fun getAllMostRatePosts(): Flow<List<Post>>
 
     @Query("SELECT * FROM posts " +
