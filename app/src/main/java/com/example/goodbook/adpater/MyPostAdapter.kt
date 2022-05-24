@@ -22,7 +22,7 @@ import com.example.goodbook.ui.viewmodel.PostViewModelFactory
 import com.example.goodbook.ui.viewmodel.StarModel
 import kotlinx.android.synthetic.main.mypost_book_item.view.*
 
-class MyPostAdapter(val starModel: StarModel): ListAdapter<Post, MyPostAdapter.MyPostHolder>(DiffCallback) {
+class MyPostAdapter(val userId: Int?): ListAdapter<Post, MyPostAdapter.MyPostHolder>(DiffCallback) {
 
 
     class MyPostHolder(private var binding: MypostBookItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -105,6 +105,7 @@ class MyPostAdapter(val starModel: StarModel): ListAdapter<Post, MyPostAdapter.M
             val context = holder.itemView.context
             val intent = Intent(context, DetailPostActivity::class.java)
             intent.putExtra("post",current.id)
+            intent.putExtra("userId", userId)
 
             context.startActivity(intent)
         }
