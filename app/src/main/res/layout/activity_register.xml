@@ -10,7 +10,7 @@
         android:id="@+id/image1Register"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="500dp"
+        android:layout_marginBottom="620dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="166dp"
-        android:layout_marginTop="185dp"
+        android:layout_marginTop="80dp"
         android:text="Good"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toStartOf="@+id/textBookRegister"
@@ -38,6 +38,7 @@
         android:text="Book"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toEndOf="@+id/textGoodRegister"
+        app:layout_constraintTop_toTopOf="@+id/textGoodRegister"
         tools:layout_editor_absoluteY="185dp" />
 
     <ImageView
@@ -70,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:hint="Họ Tên"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +80,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F5F3FF" />
@@ -92,12 +94,34 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="50dp"
-        android:hint="Email hoặc số điện thoại"
+        android:hint="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textFieldNameRegister">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F3FF" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldPhoneRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:hint="Số điện thoại"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldMailRegister">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F5F3FF" />
@@ -114,10 +138,11 @@
         android:hint="Mật khẩu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldMailRegister">
+        app:layout_constraintTop_toBottomOf="@+id/textFieldPhoneRegister">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F5F3FF" />
@@ -138,6 +163,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_repeat_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F5F3FF" />
