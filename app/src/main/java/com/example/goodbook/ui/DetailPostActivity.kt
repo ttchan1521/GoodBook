@@ -128,7 +128,6 @@ class DetailPostActivity : AppCompatActivity() {
         for (i in 0..star) {
             (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)
             starModel.addRating(postId!!, userId!!, star + 1)
-
         }
     }
 

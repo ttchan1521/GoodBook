@@ -60,9 +60,9 @@ class HomeViewModel(private val goodBookDao : GoodBookDao) : ViewModel() {
         return allCategoriesWithPosts
     }
 
-    public fun getRatingOfPost(post_id: Int): LiveData<Int> {
-        return goodBookDao.getRating(post_id).asLiveData()
-    }
+//    public fun getRatingOfPost(post_id: Int): LiveData<Double> {
+//        return goodBookDao.getPost(post_id).asLiveData()
+//    }
 
     public suspend fun insertUser (user: User) {
         goodBookDao.insert(user)

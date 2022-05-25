@@ -127,7 +127,8 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-                    tools:ignore="ImageContrastCheck"/>
+                    tools:ignore="ImageContrastCheck"
+                    android:src="@drawable/avt"/>
 <!--                    app:imagesrc="@{userAvt}" />-->
 
                 <TextView

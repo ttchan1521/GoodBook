@@ -43,6 +43,7 @@ class SavedPostActivity : AppCompatActivity() {
 
         val adapter = HomeBookCategoriesItemAdapter(homeViewModel, this) { post: Post ->
             val postDetailIntent = Intent(this, DetailPostActivity::class.java)
+            Log.d(TAG, "onCreate: adapter ${post.id}")
             postDetailIntent.putExtra("post", post.id)
             postDetailIntent.putExtra("userId", userId)
             startActivity(postDetailIntent)
