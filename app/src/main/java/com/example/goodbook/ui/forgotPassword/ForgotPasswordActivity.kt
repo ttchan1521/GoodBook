@@ -31,6 +31,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
         )
     }
 
+    private lateinit var mail_phone_input: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
@@ -43,6 +45,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     fun confirmAction(view: View) {
         val intent: Intent = Intent(this, NewPasswordActivity::class.java)
+        mail_phone_input = findViewById<TextInputEditText>(R.id.TextInputEditTextPass).text.toString()
+        intent.putExtra("mail_phone", mail_phone_input)
         startActivity(intent)
     }
     fun backAction(view: View) {

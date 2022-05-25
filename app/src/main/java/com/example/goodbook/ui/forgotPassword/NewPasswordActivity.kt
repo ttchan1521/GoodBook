@@ -12,6 +12,7 @@ import com.example.goodbook.ui.LoginActivity
 import com.example.goodbook.ui.viewmodel.LoginViewModel
 import com.example.goodbook.ui.viewmodel.LoginViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
 class NewPasswordActivity : AppCompatActivity() {
 
@@ -27,16 +28,35 @@ class NewPasswordActivity : AppCompatActivity() {
         val binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
+        binding.buttonConfirmNewPW.setOnClickListener {
+            val mail_phone = intent?.extras?.getString("mail_phone")
+            val newPass = findViewById<TextInputEditText>(R.id.passPassInput).text.toString()
+            val newPass1 = findViewById<TextInputEditText>(R.id.confirmNewPass).text.toString()
+
+            if (check2PassisSame(newPass, newPass1)) {
+                savePass(mail_phone!!, newPass)
+            }
+            else {
+                failChange()
+            }
+        }
     }
 
-    fun successChangePass() {
+    private fun successChangePass() {
         val intent: Intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 
-    fun failLogin() {
+    private fun failChange() {
         showSnackbar()
+    }
+
+    private fun savePass(mail: String, pass: String) {
+        val user = viewModel.getUserByMailPhone(mail)
+        user.observe(this) {
+            it.password = pass
+            viewModel.updateUser(it)
+        }
     }
 
     private fun showSnackbar(): Boolean {
@@ -47,5 +67,9 @@ class NewPasswordActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).show()
         return true
+    }
+
+    private fun check2PassisSame(pass1: String, pass2: String): Boolean {
+        return pass1 == pass2
     }
 }

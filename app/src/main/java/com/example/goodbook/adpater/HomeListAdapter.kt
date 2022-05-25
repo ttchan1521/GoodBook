@@ -48,7 +48,7 @@ class HomeListAdapter(
                 Log.d(ContentValues.TAG, "Detail Post View through Home Page")
                 val postDetailIntent = Intent(activity, DetailPostActivity::class.java)
                 postDetailIntent.putExtra("post", post.id)
-                val userId = activity?.intent?.extras?.getInt("userId")
+                val userId = activity.intent?.extras?.getInt("userId")
                 postDetailIntent.putExtra("userId", userId)
                 activity.startActivity(postDetailIntent)
             }
@@ -71,7 +71,7 @@ class HomeListAdapter(
         val category = getItem(position)
 
         category.posts.observe(lifecycleOwner) {
-            if (it.size > 0) {
+            if (it.isNotEmpty()) {
                 holder.bind(category, { clickListener(category.id, category.title) }, lifecycleOwner, activity)
             }
         }

@@ -33,6 +33,12 @@ class LoginViewModel(private val goodBookDao: GoodBookDao) : ViewModel() {
         }
     }
 
+    fun getUserByMailPhone(mail_phone: String): LiveData<User> {
+        return goodBookDao.getUser(mail_phone).asLiveData()
+    }
+
+
+
 }
 
 class LoginViewModelFactory(private val goodBookDao: GoodBookDao) : ViewModelProvider.Factory {

@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "users")
 data class User(
     @NonNull
-    val password: String,
+    var password: String,
     @NonNull
     val name: String,
     @ColumnInfo(name = "phone")
