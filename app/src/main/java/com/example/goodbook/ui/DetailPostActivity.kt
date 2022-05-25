@@ -84,7 +84,7 @@ class DetailPostActivity : AppCompatActivity() {
         val userId = intent?.extras?.getInt("userId")
 
         starModel.getStarUser(post_id, userId!!)?.observe(this, Observer { item ->
-            item.let {
+            item?.let {
                 val star = it - 1
                 for (i in 0..star) {
                     (binding.rating.getChildAt(i) as ImageView).setImageResource(R.drawable.ic_baseline_star_24)

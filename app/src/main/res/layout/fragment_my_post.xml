@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment"
-    android:layout_marginBottom="50dp">
+    android:layout_marginBottom="80dp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_textField"
